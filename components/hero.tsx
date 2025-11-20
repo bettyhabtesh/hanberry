@@ -1,0 +1,108 @@
+"use client";
+import React from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+
+const images = [
+  {
+    src: '/images/h1.PNG',
+    alt: 'Model 1',
+    overlayText: '',
+    textColor: '',
+  },
+  {
+    src: '/images/h2.jpg',
+    alt: 'Model 2',
+    overlayText: '',
+    textColor: '',
+  },
+  {
+    src: '/images/h3.jpg',
+    alt: 'Model 3',
+    overlayText: 'BEA',
+    textColor: 'text-white',
+  },
+  {
+    src: '/images/h4.PNG',
+    alt: 'Model 4',
+    overlayText: 'UTY',
+    textColor: 'text-white',
+  },
+];
+
+// Keep a small variant object, but we'll pass per-item animate props for clearer control
+// (floatVariants removed — using per-item animate/transition props instead)
+
+function HeroSection() {
+  return (
+    <div className="bg-white w-full overflow-hidden">
+      {/* Images Row */}
+      <div className="flex justify-center items-end gap-6 px-6 py-12 flex-wrap ">
+        {images.map((img, index) => {
+          // h1 & h3 (index 0,2) should be higher; h2 & h4 (index 1,3) lower
+          const verticalClass = index % 2 === 0 ? '-translate-y-6' : 'translate-y-6';
+
+          // Per-item animate: even indices move up, odd move down. Keep movement slow.
+          const animateY = index % 2 === 0 ? [0, -30, 0] : [0, 30, 0];
+          const transition = { duration: 10, repeat: Infinity };
+
+          return (
+            <motion.div
+              key={index}
+              className={`relative rounded-2xl overflow-hidden w-96 h-[600px] transform ${verticalClass}`}
+              animate={{ y: animateY }}
+              transition={transition}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover"
+              />
+
+              {/* Overlay handling: position BEA on h3 (index 2) to the right, UTY on h4 (index 3) to the left */}
+              {img.overlayText && (index === 2 || index === 3) && (
+                <div className={`absolute inset-y-0 ${index === 2 ? 'right-1' : 'left-6'} top-1/2 transform -translate-y-1/2 pointer-events-none `}> 
+                  {/* Bottom layer: large white stroke (outline) */}
+                  <span
+                    aria-hidden
+                    style={{ WebkitTextStroke: '6px white', color: 'transparent' }}
+                    className="block text-[11em] font-extrabold tracking-wider leading-none pt-40"
+                  >
+                    {img.overlayText}
+                  </span>
+               
+                </div>
+              )}
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Scrolling Text */}
+      <div className="w-full overflow-hidden py-6 bg-white pt-20 pb-20">
+        <motion.div
+          animate={{ x: ['0%', '-100%'] }}
+          transition={{
+            repeat: Infinity,
+            duration: 40,
+            ease: 'linear',
+          }}
+          className="whitespace-nowrap flex gap-6 text-2xl font-semibold"
+        >
+          {Array(10).fill(
+            <>
+              <span className="text-[#8B7A5D]">BE YOUR OWN KIND OF BEAUTY  </span>
+              <span className='text-black'> | </span>
+              <span className="text-black ml-4">BE YOUR OWN KIND OF BEAUTY </span>
+              <span className='text-black'> |</span>
+            </>
+          )}
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+export default HeroSection;
