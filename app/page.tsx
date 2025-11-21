@@ -2,7 +2,9 @@ import Navbar from '@/components/navbar';
 import HeroSection from '@/components/hero';
 import MakeupIntro from '@/components/welcome';
 import Features from '@/components/features';
-import Book from '@/components/Book';
+import AboutHamneal from '@/components/abouthamnel';
+import MakeupGallery from '@/components/makeups';
+import WorksInHome from '@/components/worksinhome';
 export default function Home() {
   return (
     <div>
@@ -10,7 +12,9 @@ export default function Home() {
       <HeroSection/>
       <MakeupIntro/>
       <Features/>   
-      <Book/>
+      <AboutHamneal/>
+      <MakeupGallery/>
+      <WorksInHome/>
     </div>
   );
 }
