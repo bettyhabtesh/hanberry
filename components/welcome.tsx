@@ -53,11 +53,11 @@ function MakeupIntro() {
       <div className="w-full lg:w-1/2 flex flex-col">
         {/* Text Area */}
         <div className="p-6 lg:p-16 flex-1 lg:max-w-4xl">
-          <p className="text-3xl lg:text-4xl mb-3 text-[#8B7A5D]">
+          <p className="text-5xl lg:text-6xl mb-3 text-[#8B7A5D]">
             <TypingText text="welcome" className={` italic ${italianno.className}`} delay={0.1} charDelay={0.14} />
           </p>
-          <h1 className="text-4xl lg:text-5xl font-bold text-black leading-tight mb-6">
-            <TypingText text="DIVE INTO THE WORLD OF MAKEUP BEAUTY" className={`text-4xl lg:text-5xl font-bold text-black leading-tight ${poppins.className}`} delay={0.2} charDelay={0.12} />
+          <h1 className="text-4xl lg:text-5xl font-medium text-black leading-tight mb-6">
+            <TypingText text="DIVE INTO THE WORLD OF MAKEUP BEAUTY" className={`text-4xl lg:text-5xl font-semibold text-black leading-tight ${poppins.className}`} delay={0.2} charDelay={0.12} />
           </h1>
           <p className="text-lg lg:text-xl text-gray-800 max-w-2xl">
             “At Hanberry Beauty Lounge, beauty is more than makeup — it’s confidence, self-expression, and artistry.” – Hamneal N.

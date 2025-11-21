@@ -19,13 +19,13 @@ const images = [
   {
     src: '/images/h3.jpg',
     alt: 'Model 3',
-    overlayText: 'BEA',
+    // overlayText: 'BEA',
     textColor: 'text-white',
   },
   {
     src: '/images/h4.PNG',
     alt: 'Model 4',
-    overlayText: 'UTY',
+    // overlayText: 'UTY',
     textColor: 'text-white',
   },
 ];
@@ -37,11 +37,11 @@ function HeroSection() {
   return (
     <div className="bg-white w-full overflow-hidden">
       {/* Images Row */}
-      <div className="flex justify-center items-end gap-6 px-6 py-12 flex-wrap ">
+      <div className="grid grid-cols-4 justify-center items-center gap-2 md:gap-6 px-2 md:px-10 py-12">
         {images.map((img, index) => {
           // h1 & h3 (index 0,2) should be higher; h2 & h4 (index 1,3) lower
           const verticalClass = index % 2 === 0 ? '-translate-y-6' : 'translate-y-6';
-
+          const smallVerticlClass = index % 2 === 0 ? '-translate-y-4' : 'translate-y-4';
           // Per-item animate: even indices move up, odd move down. Keep movement slow.
           const animateY = index % 2 === 0 ? [0, -30, 0] : [0, 30, 0];
           const transition = { duration: 10, repeat: Infinity };
@@ -49,7 +49,7 @@ function HeroSection() {
           return (
             <motion.div
               key={index}
-              className={`relative rounded-2xl overflow-hidden w-96 h-[600px] transform ${verticalClass}`}
+              className={`relative rounded-2xl overflow-hidden w-full h-[450px] md:h-[600px] transform ${smallVerticlClass} md:${verticalClass}`}
               animate={{ y: animateY }}
               transition={transition}
             >
@@ -78,10 +78,20 @@ function HeroSection() {
             </motion.div>
           );
         })}
+        <div>
+          <div className={`absolute inset-y-0 right-2 top-2/3 transform -translate-y-1/2 pointer-events-none `}> 
+              {/* Bottom layer: large white stroke (outline) */}
+              <span
+                aria-hidden
+                style={{ WebkitTextStroke: '6px white', color: 'transparent' }}
+                className="block text-[4em] md:text-[11em] md:font-extrabold tracking-wider leading-none pt-40"
+              > BEAUTY </span>
+            </div>
+        </div>
       </div>
 
       {/* Scrolling Text */}
-      <div className="w-full overflow-hidden py-6 bg-white pt-20 pb-20">
+      <div className="w-full overflow-hidden py-6 bg-white py-10 md:py-20">
         <motion.div
           animate={{ x: ['0%', '-100%'] }}
           transition={{
@@ -89,13 +99,13 @@ function HeroSection() {
             duration: 40,
             ease: 'linear',
           }}
-          className="whitespace-nowrap flex gap-6 text-2xl font-semibold"
+          className="whitespace-nowrap flex gap-6 text-sm md:text-xl font-semibold"
         >
           {Array(10).fill(
             <>
               <span className="text-[#8B7A5D]">BE YOUR OWN KIND OF BEAUTY  </span>
               <span className='text-black'> | </span>
-              <span className="text-black ml-4">BE YOUR OWN KIND OF BEAUTY </span>
+              <span className="text-black">BE YOUR OWN KIND OF BEAUTY </span>
               <span className='text-black'> |</span>
             </>
           )}
