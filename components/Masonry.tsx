@@ -123,31 +123,33 @@ const Masonry: React.FC<MasonryProps> = ({
     preloadImages(items.map(i => i.img)).then(() => setImagesReady(true));
   }, [items]);
 
-  const [containerHeight, setContainerHeight] = useState(0);
+  // const [containerHeight, setContainerHeight] = useState(0);
 
-  const grid = useMemo<GridItem[]>(() => {
-    if (!width) return [];
+  const { grid, containerHeight } = useMemo(() => {
+  if (!width) return { grid: [], containerHeight: 0 };
 
-    const colHeights = new Array(columns).fill(0);
-    const gap = 16;
-    const totalGaps = (columns - 1) * gap;
-    const columnWidth = (width - totalGaps) / columns;
+  const colHeights = new Array(columns).fill(0);
+  const gap = 16;
+  const totalGaps = (columns - 1) * gap;
+  const columnWidth = (width - totalGaps) / columns;
 
-    const layout = items.map(child => {
-      const col = colHeights.indexOf(Math.min(...colHeights));
-      const x = col * (columnWidth + gap);
-      const height = child.height / 2;
-      const y = colHeights[col];
+  const grid = items.map(child => {
+    const col = colHeights.indexOf(Math.min(...colHeights));
+    const x = col * (columnWidth + gap);
+    const h = child.height / 2;
+    const y = colHeights[col];
 
-      colHeights[col] += height + gap;
-      return { ...child, x, y, w: columnWidth, h: height };
-    });
+    colHeights[col] += h + gap;
 
-    // 🔥 SET REAL HEIGHT
-    setContainerHeight(Math.max(...colHeights));
+    return { ...child, x, y, w: columnWidth, h };
+  });
 
-    return layout;
+  return {
+    grid,
+    containerHeight: Math.max(...colHeights)
+  };
   }, [columns, items, width]);
+
 
   const hasMounted = useRef(false);
 
