@@ -7,6 +7,8 @@ import MakeupGallery from '@/components/makeups';
 import WorksInHome from '@/components/worksinhome';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+// import Booking from '@/components/Booking';
+
 export default function Home() {
   return (
     <div>
@@ -16,6 +18,7 @@ export default function Home() {
       <Features/>   
       <AboutHamneal/>
       <MakeupGallery/>
+      {/* <Booking/> */}
       <WorksInHome/>
       <Contact/>
       <Footer/>

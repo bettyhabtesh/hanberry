@@ -3,9 +3,9 @@ import Image from 'next/image'
 
 const Contact = () => {
   return (
-    <div className='relative w-full md:h-screen grid md:grid-cols-2 gap-5 bg-white text-black px-5 md:px-16'>
+    <div className='relative w-full md:h-screen grid md:grid-cols-2 gap-5 bg-white text-black px-5 md:px-16 py-16'>
         <div className='my-auto'>
-            <h3 className='text-4xl font-bold'>Get in Touch, Gorgeous</h3>
+            <h3 className='text-3xl md:text-6xl font-bold pb-4'>Get in Touch, Gorgeous</h3>
             <p className='text-sm text-[#2E2E2E]/70 font-light'>She is just a message away! Tell her about your occasion, your favorite style, or ask anything — She’ll get back to you as soon as possible. Let’s make your beauty dreams come true.</p>
 
             <form className='py-8 space-y-5 md:w-2/3'>

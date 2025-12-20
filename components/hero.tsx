@@ -103,10 +103,10 @@ function HeroSection() {
         >
           {Array(10).fill(
             <>
-              <span className="text-[#8B7A5D]">BE YOUR OWN KIND OF BEAUTY  </span>
-              <span className='text-black'> | </span>
-              <span className="text-black">BE YOUR OWN KIND OF BEAUTY </span>
-              <span className='text-black'> |</span>
+              <span key={1} className="text-[#8B7A5D]">BE YOUR OWN KIND OF BEAUTY  </span>
+              <span key={2} className='text-black'> | </span>
+              <span key={3} className="text-black">BE YOUR OWN KIND OF BEAUTY </span>
+              <span key={4} className='text-black'> |</span>
             </>
           )}
         </motion.div>

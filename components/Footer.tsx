@@ -5,14 +5,14 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <div className='bg-[#333333] text-white h-full flex flex-col relative'>
+    <div className='bg-[#333333] text-white h-full flex flex-col relative w-full'>
         <div className='grid lg:grid-cols-6 gap-5 px-10 py-20'>
-            <div className='col-span-2 relative'>
+            <div className='col-span-2 relative p-10 w-full mx-auto md:h-full'>
                 <Image
                     src='/women.png'
                     alt='Women with a crown illustration'
                     fill
-                    className='h-full w-full object-contain mx-auto'
+                    className='h-full w-full object-center object-contain mx-auto my-auto '
                 />
             </div>
             <div className='grid md:grid-cols-3 gap-10 col-span-4'>
