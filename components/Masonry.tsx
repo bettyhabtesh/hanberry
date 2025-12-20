@@ -1,19 +1,39 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
-const useMedia = (queries: string[], values: number[], defaultValue: number): number => {
-  const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
+const useMedia = (
+  queries: string[],
+  values: number[],
+  defaultValue: number
+): number => {
+  const getValue = () => {
+    if (typeof window === 'undefined') return defaultValue;
 
-  const [value, setValue] = useState<number>(get);
+    const index = queries.findIndex(q => window.matchMedia(q).matches);
+    return values[index] ?? defaultValue;
+  };
+
+  const [value, setValue] = useState<number>(getValue);
 
   useEffect(() => {
-    const handler = () => setValue(get);
-    queries.forEach(q => matchMedia(q).addEventListener('change', handler));
-    return () => queries.forEach(q => matchMedia(q).removeEventListener('change', handler));
+    if (typeof window === 'undefined') return;
+
+    const handler = () => setValue(getValue());
+
+    const mediaQueryLists = queries.map(q => window.matchMedia(q));
+    mediaQueryLists.forEach(mql =>
+      mql.addEventListener('change', handler)
+    );
+
+    return () =>
+      mediaQueryLists.forEach(mql =>
+        mql.removeEventListener('change', handler)
+      );
   }, [queries]);
 
   return value;
 };
+
 
 const useMeasure = <T extends HTMLElement>() => {
   const ref = useRef<T | null>(null);
