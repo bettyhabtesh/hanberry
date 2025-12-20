@@ -43,7 +43,7 @@ export default function MakeupGallery() {
   const currentStyle = makeupStyles[activeIndex];
 
   return (
-    <div className="w-full bg-white font-poppins py-6 md:py-8 lg:py-10">
+    <div className="w-full bg-white font-poppins py-6 md:py-8 lg:py-16">
       <div className="container mx-auto px-4 sm:px-8 lg:px-16">
         {/* Top Divider Line */}
         <div className="h-px bg-[#F8E7E3] mb-6 md:mb-8"></div>
@@ -57,7 +57,7 @@ export default function MakeupGallery() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-light font-serif italic text-center mb-6 md:mb-8 text-black"
-            style={{ fontFamily: 'Georgia, serif' }}
+            // style={{ fontFamily: 'Georgia, serif' }}
           >
             Makeup Crafted for Every Occasion
           </motion.h1>

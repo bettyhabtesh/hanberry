@@ -61,12 +61,12 @@ export default function AboutHamneal() {
               variants={imageRotate}
               className="relative w-full h-[400px] md:h-[450px] lg:h-[500px]"
             >
-              <div className="relative w-[500px] h-[500px] pl-4">
+              <div className="relative h-full w-full max-w-[400px] max-h-[400px] pl-4 mx-auto">
                 <Image
                   src="/images/ham.PNG"
                   alt="Hamneal Nebiyu"
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  // sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover rounded-lg"
                 />
               </div>
