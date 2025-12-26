@@ -255,7 +255,7 @@ const Masonry: React.FC<MasonryProps> = ({
           onMouseLeave={e => handleMouseLeave(item.id, e.currentTarget)}
         >
           <div
-            className=" w-full h-full bg-cover bg-center rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] uppercase text-[10px] leading-[10px]"
+            className=" w-full h-full bg-cover bg-center rounded-[10px] uppercase text-[10px] leading-[10px]"
             style={{ backgroundImage: `url(${item.img})` }}
           >
             {colorShiftOnHover && (

@@ -18,7 +18,7 @@ export default function Home() {
       <Features/>   
       <AboutHamneal/>
       <MakeupGallery/>
-      <Booking/>
+      {/* <Booking/> */}
       <WorksInHome/>
       <Contact/>
       <Footer/>
