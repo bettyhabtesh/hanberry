@@ -5,9 +5,9 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <div className='bg-[#333333] text-white h-full flex flex-col relative w-full'>
-        <div className='grid lg:grid-cols-6 gap-5 px-10 py-20'>
-            <div className='col-span-2 relative p-10 w-full mx-auto md:h-full'>
+    <div className='bg-[#333333] text-white h-full relative w-full'>
+        <div className='grid lg:grid-cols-6 md:gap-5 px-10 py-20'>
+            <div className='col-span-2 relative p-10 min-h-96 min-w-72 mx-auto md:h-full'>
                 <Image
                     src='/women.png'
                     alt='Women with a crown illustration'

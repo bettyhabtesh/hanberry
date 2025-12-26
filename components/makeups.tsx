@@ -43,20 +43,20 @@ export default function MakeupGallery() {
   const currentStyle = makeupStyles[activeIndex];
 
   return (
-    <div className="w-full bg-white font-poppins py-6 md:py-8 lg:py-16">
+    <div className="w-full bg-white font-poppins py-6 md:py-8 lg:py-24">
       <div className="container mx-auto px-4 sm:px-8 lg:px-16">
         {/* Top Divider Line */}
-        <div className="h-px bg-[#F8E7E3] mb-6 md:mb-8"></div>
+        {/* <div className="h-px bg-[#F8E7E3] mb-6 md:mb-8"></div> */}
 
         {/* Text Content Section */}
-        <div className="mb-6 md:mb-8">
+        <div className="my-6 md:my-8">
           {/* Main Title - Cursive/Elegant Font */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-light font-serif italic text-center mb-6 md:mb-8 text-black"
+            className="text-3xl md:text-5xl font-bold mb-10 md:mb-8 text-black uppercase"
             // style={{ fontFamily: 'Georgia, serif' }}
           >
             Makeup Crafted for Every Occasion
@@ -77,7 +77,7 @@ export default function MakeupGallery() {
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-black">
                     {currentStyle.title}
                   </h2>
-                  <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-2xl">
+                  <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-2xl">
                     {currentStyle.description}
                   </p>
                 </motion.div>
@@ -111,7 +111,7 @@ export default function MakeupGallery() {
         </div>
 
         {/* Image Gallery Section */}
-        <div className="relative w-full overflow-hidden">
+        <div className="relative w-full overflow-hidden ">
           <div className="flex gap-0">
             {makeupStyles.map((style, index) => {
               const isHovered = hoveredIndex === index;
@@ -120,7 +120,7 @@ export default function MakeupGallery() {
               return (
                 <motion.div
                   key={style.id}
-                  className="relative shrink-0 cursor-pointer"
+                  className="relative shrink-0 cursor-pointer my-auto"
                   style={{
                     marginLeft: index > 0 ? '-5%' : '0',
                     zIndex: isHovered || isActive ? 10 : 5 - index,
@@ -135,7 +135,7 @@ export default function MakeupGallery() {
                     width: isHovered || isActive ? '28%' : '22%',
                     height: isHovered || isActive ? '420px' : '360px',
                   }}
-                  transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                  transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
                 >
                   <div className="relative w-full h-full">
                     <Image
@@ -144,7 +144,7 @@ export default function MakeupGallery() {
                       fill
                       sizes="(max-width: 768px) 22vw, 22vw"
                       className={`object-cover transition-all duration-400 ${
-                        isHovered || isActive ? 'brightness-100' : 'brightness-90'
+                        isHovered || isActive ? 'brightness-100 rounded-md shadow-2xl' : 'brightness-40'
                       }`}
                     />
                     {/* Overlay effect on hover */}

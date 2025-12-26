@@ -38,7 +38,7 @@ const allImages = [
     {
       id: "6",
       img: "/images/g6.JPG",
-      height: 350,
+      height: 450,
     },
     {
       id: "7",
@@ -53,13 +53,13 @@ const allImages = [
     {
       id: "9",
       img: "/images/g9.JPG",
-      height: 600,
+      height: 650,
     },
-    {
-      id: "10",
-      img: "/images/g10.JPG",
-      height: 350,
-    },
+    // {
+    //   id: "10",
+    //   img: "/images/g10.JPG",
+    //   height: 450,
+    // },
     {
       id: "11",
       img: "/images/g11.PNG",
@@ -96,7 +96,7 @@ export default function WorksInHome() {
         >
           {/* Title - Elegant Script Font */}
           <h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-serif mb-8 md:mb-10 text-black"
+            className="text-3xl md:text-5xl uppercase font-bold  mb-8 md:mb-10 text-black"
             // style={{ 
             //   fontFamily: 'Georgia, serif',
             //   fontStyle: 'italic',
