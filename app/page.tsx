@@ -7,7 +7,7 @@ import MakeupGallery from '@/components/makeups';
 import WorksInHome from '@/components/worksinhome';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import Booking from '@/components/Booking';
+// import Booking from '@/components/Booking';
 
 export default function Home() {
   return (
