@@ -3,8 +3,8 @@ import Image from 'next/image'
 
 const Contact = () => {
   return (
-    <div className='relative w-full md:h-screen grid md:grid-cols-2 gap-5 bg-white text-black px-5 md:px-16 pt-24 pb-10'>
-        <div className='my-auto py-16 relative'>
+    <div className='relative w-full md:h-screen grid md:grid-cols-2 gap-5 bg-white text-black px-5 md:px-16 pt-24 '>
+        <div className='my-auto py-16 relative pb-24'>
             <h3 className='text-3xl md:text-5xl font-bold pb-4 uppercase'>Get in Touch, Gorgeous</h3>
             <p className='text-sm text-[#2E2E2E]/70 font-light'>She is just a message away! Tell her about your occasion, your favorite style, or ask anything — She’ll get back to you as soon as possible. Let’s make your beauty dreams come true.</p>
 

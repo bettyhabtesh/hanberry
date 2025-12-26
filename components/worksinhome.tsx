@@ -13,17 +13,17 @@ const allImages = [
   {
       id: "1",
       img: "/images/g1.JPG",
-      height: 600,
+      height: 850,
     },
     {
       id: "2",
       img: "/images/g2.JPG",
-      height: 450,
+      height: 550,
     },
     {
       id: "3",
       img: "/images/g3.PNG",
-      height: 600,
+      height: 1100,
     },
     {
       id: "4",
@@ -33,42 +33,67 @@ const allImages = [
     {
       id: "5",
       img: "/images/g5.JPG",
-      height: 500,
+      height: 700,
     },
     {
       id: "6",
       img: "/images/g6.JPG",
-      height: 450,
+      height: 800,
     },
     {
       id: "7",
       img: "/images/g7.JPG",
-      height: 850,
+      height: 1000,
     },
     {
       id: "8",
       img: "/images/g8.PNG",
-      height: 650,
+      height: 1050,
     },
     {
       id: "9",
       img: "/images/g9.JPG",
       height: 650,
     },
-    // {
-    //   id: "10",
-    //   img: "/images/g10.JPG",
-    //   height: 450,
-    // },
+    {
+      id: "10",
+      img: "/images/g10.JPG",
+      height: 750,
+    },
     {
       id: "11",
       img: "/images/g11.PNG",
-      height: 600,
+      height: 950,
     },
     {
       id: "12",
       img: "/images/g12.JPG",
-      height: 600,
+      height: 750,
+    },
+    {
+      id: "13",
+      img: "/images/g13.PNG",
+      height: 850,
+    },
+    {
+      id: "14",
+      img: "/images/g14.JPG",
+      height: 1050,
+    },
+    {
+      id: "15",
+      img: "/images/g15.JPG",
+      height: 550,
+    },
+    {
+      id: "16",
+      img: "/images/g16.JPG",
+      height: 500,
+    },
+    {
+      id: "17",
+      img: "/images/g17.PNG",
+      height: 300,
     },
 ];
 
@@ -125,7 +150,7 @@ export default function WorksInHome() {
           
           
         </motion.div>
-        <div className='relative w-full md:h-screen'>
+        <div className='relative w-full md:h-fit'>
           {/* <div className='absolute z-50 bg-gradient-to-b from-transparent to w-full h-full'>.</div> */}
           <Masonry
             items={allImages}
