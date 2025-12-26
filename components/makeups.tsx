@@ -110,8 +110,10 @@ export default function MakeupGallery() {
           </div>
         </div>
 
-        {/* Image Gallery Section */}
-        <div className="relative w-full overflow-hidden ">
+        
+      </div>
+      {/* Image Gallery Section */}
+      <div className="relative w-full overflow-hidden ">
           <div className="flex gap-0">
             {makeupStyles.map((style, index) => {
               const isHovered = hoveredIndex === index;
@@ -130,9 +132,9 @@ export default function MakeupGallery() {
                     setActiveIndex(index);
                   }}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  initial={{ width: '22%' }}
+                  initial={{ width: '24%' }}
                   animate={{
-                    width: isHovered || isActive ? '28%' : '22%',
+                    width: isHovered || isActive ? '28%' : '24%',
                     height: isHovered || isActive ? '420px' : '360px',
                   }}
                   transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
@@ -162,7 +164,6 @@ export default function MakeupGallery() {
             })}
           </div>
         </div>
-      </div>
     </div>
   );
 }

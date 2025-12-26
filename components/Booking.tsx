@@ -128,7 +128,7 @@ const Booking = () => {
     <div className='relative px-10 bg-[#C19F98] text-black py-10'>
         <div className='flex justify-between'>
             <hr/>
-                <h3 className='text-4xl md:text-6xl font-semibold text-center py-5'>Our Makeup Packages</h3>
+                <h3 className='text-3xl md:text-5xl font-semibold text-center py-5'>Our Makeup Packages</h3>
             <hr/>
         </div>
         <div className='py-10'>
