@@ -17,7 +17,7 @@ const Booking = () => {
     
     const packages = [
         {
-            id: 10, 
+            id: 0, 
             name: 'Brides',
             types: [
                 {
@@ -71,7 +71,7 @@ const Booking = () => {
             ]
         },
         {
-            id: 20,
+            id: 1,
             name: 'Bridesmaids',
             types: [
                 {
@@ -116,7 +116,7 @@ const Booking = () => {
             ]
         },
         {
-            id: 30,
+            id: 2,
             name: 'Glam',
             types: [
                 {
@@ -150,24 +150,24 @@ const Booking = () => {
 
     const [currentPackage, setCurrentPackage] = useState(0);
     const [booked, setBooked] = useState(0);
-    const [tab, setTab] = useState(packages[currentPackage].id)
+    // const [tab, setTab] = useState(packages[currentPackage].id)
     // const [quantity, setQuantity] = useState(1);
 
-    const goNext = () => {
-        if(currentPackage >= packages.length - 1) {
-            setCurrentPackage(0);
-            return;
-        }
-        setCurrentPackage(currentPackage + 1);
-    } 
+    // const goNext = () => {
+    //     if(currentPackage >= packages.length - 1) {
+    //         setCurrentPackage(0);
+    //         return;
+    //     }
+    //     setCurrentPackage(currentPackage + 1);
+    // } 
 
-    const goBack = () => {
-        if(currentPackage <= 0) {
-            setCurrentPackage(packages.length - 1);
-            return;
-        }
-        setCurrentPackage(currentPackage-1)
-    } 
+    // const goBack = () => {
+    //     if(currentPackage <= 0) {
+    //         setCurrentPackage(packages.length - 1);
+    //         return;
+    //     }
+    //     setCurrentPackage(currentPackage-1)
+    // } 
 
 
 
@@ -201,15 +201,15 @@ const Booking = () => {
                                     <button 
                                         key={p.id}
                                         style={{}}
-                                        className={`font-bold text-md md:text-xl border-b-2 cursor-pointer ${tab === p.id ? 'border-[#D8A48F]' : 'border-none'}`}
-                                        onClick={() => {setTab(p.id)}}
+                                        className={`font-bold text-md md:text-xl border-b-2 cursor-pointer ${currentPackage === p.id ? 'border-[#D8A48F]' : 'border-none'}`}
+                                        onClick={() => {setCurrentPackage(p.id)}}
                                     >{p.name}</button>
                                 ))}
                             </div>
                             <div className='grid md:grid-cols-2 gap-5 md:auto-rows-fr sm:space-y-5'>
                                 {packages[currentPackage].types?.map(
                                     (type) => (
-                                        <div key={type.id} className='h-full border border-[1E1E1E] rounded-md px-3 py-5'>
+                                        <div key={type.id} className='flex flex-col h-full border border-[1E1E1E] rounded-md px-3 py-5'>
                                             <h3 className='text-3xl font-bold pb-3'>{type.name}</h3>
                                             <p className=''>{type.description} </p>
                                             {/* <p className='text-center'>Perfect for your wedding day — timeless beauty that lasts all day.</p> */}
@@ -222,7 +222,7 @@ const Booking = () => {
                                             <p className=''>Duration: {type.duration} </p>
                                             <p className=''>Price: {type.price} <b>ETB</b> </p>
                                             <button 
-                                                className='mt-auto w-full bottom-0 bg-[#1E1E1E] rounded-md px-10 py-2 font-semibold border border-[#1E1E1E] text-white hover:bg-transparent hover:text-[#1E1E1E] cursor-pointer'
+                                                className='mt-auto w-full bg-[#1E1E1E] rounded-md px-10 py-2 font-semibold border border-[#1E1E1E] text-white hover:bg-transparent hover:text-[#1E1E1E] cursor-pointer'
                                                 onClick={() => { 
                                                     setOpenForm(!openForm);
                                                     setBooked(type.id);
