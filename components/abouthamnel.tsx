@@ -93,9 +93,9 @@ export default function AboutHamneal() {
                 </p>
               </div>
 
-              <button className="self-start font-bold text-lg md:text-xl hover:opacity-80 transition-opacity mt-2">
+              {/* <button className="self-start font-bold text-lg md:text-xl hover:opacity-80 transition-opacity mt-2">
                 Read More
-              </button>
+              </button> */}
             </motion.div>
           </div>
         </div>
