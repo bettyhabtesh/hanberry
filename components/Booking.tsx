@@ -121,25 +121,25 @@ const Booking = () => {
             types: [
                 {
                     id: 7,
-                    name: 'Simple Glam Package',
+                    name: 'Soft Glam Package',
                     type: 'glam',
                     includes: [
                         'Makeup'
                     ],
                     description: 'This package delivers soft glam makeup with a clean and modern finish. It is ideal for clients who want a glamorous look without heavy styling.',
-                    price: 65000,
+                    price: 85000,
                     background: '/images/glam.png',
                     duration: '2-3 hr'
                 },
                 {
                     id: 8,
                     name: 'Full Glam Package',
-                    type: 'gold',
+                    type: 'glam',
                     includes: [
-                        'Glam'
+                        'Makeup'
                     ],
                     description: 'This package provides a bold and full glam makeup experience. It is perfect for clients who want a dramatic, high-impact, and camera-ready look.',
-                    price: 75000,
+                    price: 10000,
                     background: '/images/glam.png',
                     duration: '2-3 hr'
                 },
