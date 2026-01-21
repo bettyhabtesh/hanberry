@@ -33,9 +33,9 @@ const Footer = () => {
                 <div className='md:mx-auto space-y-3'>
                     <h3 className='text-xl font-bold'>Contact</h3>
                     <ul className='text-sm py-2 text-white/70 space-y-1 group group-hover:text-[#D8A48F] hover:cursor-pointer'>
-                        <li className='hover:text-[#E7C9B6]'>+251 914671613 </li>
-                        <li className='hover:text-[#E7C9B6]'>+251 93 571 2362</li>
-                        <li className='hover:text-[#E7C9B6]'>Addis Ababa, Ethiopia</li>
+                        <li className='hover:text-[#E7C9B6]'> +251 935 71 23 62 </li>
+                        <li className='hover:text-[#E7C9B6]'> +251 914 671 613 </li>
+                        <li className='hover:text-[#E7C9B6]'> Addis Ababa, Ethiopia </li>
                     </ul>
                 </div>
                 <div className='w-full md:grid items-center'>
@@ -48,7 +48,9 @@ const Footer = () => {
                             <h3 className='text-xl font-bold'>Socials</h3>
                             <div>
                                 <ul className='flex space-x-3 py-2 text-sm text-white/80'>
-                                    <li className='hover:text-[#E7C9B6]'>Instagram </li>
+                                    <li className='hover:text-[#E7C9B6]'> 
+                                        <Link href=''>Instagram </Link>
+                                    </li>
                                     <li>|</li>
                                     <li className='hover:text-[#E7C9B6]'> TikTok</li>    
                                     <li>|</li>

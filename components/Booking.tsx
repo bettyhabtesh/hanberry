@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import Book from './forms/Book';
+import Successful from './Response/Successful';
 
 const Booking = () => {
 
@@ -153,21 +154,21 @@ const Booking = () => {
     // const [tab, setTab] = useState(packages[currentPackage].id)
     // const [quantity, setQuantity] = useState(1);
 
-    const goNext = () => {
-        if(currentPackage >= packages.length - 1) {
-            setCurrentPackage(0);
-            return;
-        }
-        setCurrentPackage(currentPackage + 1);
-    } 
+    // const goNext = () => {
+    //     if(currentPackage >= packages.length - 1) {
+    //         setCurrentPackage(0);
+    //         return;
+    //     }
+    //     setCurrentPackage(currentPackage + 1);
+    // } 
 
-    const goBack = () => {
-        if(currentPackage <= 0) {
-            setCurrentPackage(packages.length - 1);
-            return;
-        }
-        setCurrentPackage(currentPackage-1)
-    } 
+    // const goBack = () => {
+    //     if(currentPackage <= 0) {
+    //         setCurrentPackage(packages.length - 1);
+    //         return;
+    //     }
+    //     setCurrentPackage(currentPackage-1)
+    // } 
 
     const handlePackageChange = (id: number) => {
         setCurrentPackage(id)
@@ -178,15 +179,16 @@ const Booking = () => {
     const visibleTypes = currentTypes.slice(typeIndex, typeIndex + 2)
     const hasMultiplePages = currentTypes.length > 2
     const totalPages = Math.ceil(currentTypes.length / 2)
-    const currentPage = Math.floor(typeIndex / 2)
+    const currentPage = Math.floor(typeIndex / 2);
+
 
   return (
     <>
-      <div className="relative px-5 md:px-10 text-[#333333] bg-white py-16">
-        <div className="relative py-10">
+      <div className="md:px-10 text-[#333333] bg-white py-16">
+        <div className="py-10">
           <div className="w-full grid md:grid-cols-3 md:px-16 gap-10">
-            <div className="relative w-full bg-red-500">
-              <div className="w-90 min-h-52 h-full relative p-4 md:p-6 z-40">
+            <div className="w-full pr-4">
+              <div className="w-80 md:w-90 min-h-52 h-full relative p-2 md:p-6 z-40">
                 <Image
                   src="/images/b11.PNG"
                   alt="package image"
@@ -202,7 +204,7 @@ const Booking = () => {
               </div>
             </div>
 
-            <div className="relative col-span-2 space-y-4">
+            <div className="relative col-span-2 space-y-4 px-5 md:px-0 mt-10 md:mt-0">
               <h3 className="text-3xl md:text-4xl py-5 text-gray-500 font-light">
                 Because being beautiful should never harm you
               </h3>
@@ -224,7 +226,7 @@ const Booking = () => {
               </div>
 
               <h3 className="text-3xl font-bold mt-10">
-                {packages[currentPackage].name} Package
+                {packages[currentPackage].name} Packages
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 auto-rows-fr">
@@ -306,7 +308,14 @@ const Booking = () => {
         </div>
       </div>
 
-      {openForm && <Book pkg={packages[currentPackage].types[booked]} />}
+      {openForm && <Book 
+                      pkg={packages[currentPackage].types[booked]} 
+                      onClose={() => setOpenForm(false)}
+                      onSuccess={() => {
+                        setOpenForm(false)
+                      }}/>}
+
+      
     </>
   )
 }
