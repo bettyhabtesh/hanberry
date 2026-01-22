@@ -60,7 +60,7 @@ const Footer = () => {
                         </div>
                         <div className='border-t-2 border-white/20 pt-5 mb-0'>
                             <h3 className='text-xl text-white/50 font-bold'>BEAUTY</h3>
-                            <h3 className='text-[3em] md:text-[8em] xl:text-[11em] font-bold'>HANBERRY</h3>
+                            <h3 className='text-[3em] md:text-[5em] xl:text-[8.5em] font-bold'>HANBERRY</h3>
                         </div>
                     </div>
                 </div>

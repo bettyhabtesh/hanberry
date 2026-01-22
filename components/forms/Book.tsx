@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react'
 import Successful from '../Response/Successful';
 
@@ -23,6 +24,7 @@ const Book = ({pkg, onClose} : {pkg: {
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
     const [totalPrice, setTotalPrice] = useState(pkg.price);
+    const [error, setError] = useState('');
 
     const [loading, setLoading] = useState(false);
 
@@ -46,29 +48,36 @@ const Book = ({pkg, onClose} : {pkg: {
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        setLoading(true)
-        console.log({ fullname, phone, date, quantity})
-        await fetch('/api/send-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                fullname, 
-                phone, 
-                date, 
-                quantity,
-                packageName: pkg.name,
-                packagePrice: pkg.price,
-                packageType: pkg.type,
-                duration: pkg.duration,
-                email: email || null,
-                totalPrice,
-                includes: pkg.includes
-            }),
-        })
+        try {
 
-        setLoading(false)
-        setSuccess(true);
+            e.preventDefault();
+            setLoading(true);
+            setError('');
+            
+            await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    fullname, 
+                    phone, 
+                    date, 
+                    quantity,
+                    packageName: pkg.name,
+                    packagePrice: pkg.price,
+                    packageType: pkg.type,
+                    duration: pkg.duration,
+                    email: email || null,
+                    totalPrice,
+                    includes: pkg.includes
+                }),
+            })
+            setLoading(false)
+            setSuccess(true);
+
+        } catch (error: unknown) {
+            console.log(error);
+            setError('Error booking, try again.');
+        }
         
     }
 
@@ -170,7 +179,7 @@ const Book = ({pkg, onClose} : {pkg: {
                             </button>
                         </div>
                     </div>
-
+                    <h3 className='text-red-500 text-center'>{error}</h3>
                     <div className='bg-black/4 p-5 rounded-lg'>
                         <h3 className='text-md'>Total price: <b>{totalPrice} ETB</b></h3>
                         <div className=''>

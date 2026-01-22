@@ -42,8 +42,8 @@ const Successful = ({pkge, name, email, phone, date, quantity, totalPrice, onClo
                         <h3 className='-mt-5'>{month}, {year}</h3>
                     </div>
                     <Image
-                        src='/date-bg.jpg'
-                        alt='nude sketch background image'
+                        src='/date-bg.png'
+                        alt='pencil sketch background image'
                         width={220}
                         height={220}
                         className=''

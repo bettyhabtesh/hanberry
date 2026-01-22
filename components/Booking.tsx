@@ -2,7 +2,6 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import Book from './forms/Book';
-import Successful from './Response/Successful';
 
 const Booking = () => {
 
@@ -26,7 +25,7 @@ const Booking = () => {
                     name: 'Normal Package',
                     type: 'normal',
                     includes: [
-                        'Bridal Makeup'
+                        'Bridal Makeup', 'Consultation'
                     ],
                     description: 'This package includes professional bridal makeup for a clean and elegant look. It is perfect for brides who want a simple yet beautiful finish.',
                     price: 30000,
@@ -38,7 +37,7 @@ const Booking = () => {
                     name: 'Gold Package',
                     type: 'gold',
                     includes: [
-                        'Dermaplaning', 'Hairstyling', 'Bridal Makeup'
+                        'Dermaplaning', 'Hairstyling', 'Bridal Makeup', 'Consultation'
                     ],
                     description: 'This package offers full bridal preparation including dermaplaning, hairstyling, and makeup. It gives a smooth, polished, and long-lasting bridal look.',
                     price: 35000,
@@ -50,7 +49,7 @@ const Booking = () => {
                     name: 'Platinum Package',
                     type: 'platinum',
                     includes: [
-                        'Dermaplaning', 'Hairstyling', 'Bridal Makeup', 'Retouch'
+                        'Dermaplaning', 'Hairstyling', 'Bridal Makeup', 'Retouch', 'Consultation'
                     ],
                     description: 'This is a complete premium bridal package with skin prep, hairstyling, and makeup. A retouch is included to keep your look fresh throughout the event.',
                     price: 45000,
@@ -83,7 +82,7 @@ const Booking = () => {
                         'Makeup'
                     ],
                     description: 'This package includes simple and elegant makeup for bridesmaids. It ensures a coordinated and natural look that complements the bride.',
-                    price: 1000,
+                    price: 10000,
                     background: '/images/glam.png',
                     duration: '1:30 - 2 hr'
                 },
@@ -125,10 +124,11 @@ const Booking = () => {
                     name: 'Soft Glam Package',
                     type: 'glam',
                     includes: [
-                        'Makeup'
+                        'Makeup',
+                        'Hair styling is available upon request and will incur an additional fee ranging from 2,500 to 3,000 ETB.'
                     ],
                     description: 'This package delivers soft glam makeup with a clean and modern finish. It is ideal for clients who want a glamorous look without heavy styling.',
-                    price: 85000,
+                    price: 8500,
                     background: '/images/glam.png',
                     duration: '1:30 - 2 hr'
                 },
@@ -137,7 +137,8 @@ const Booking = () => {
                     name: 'Full Glam Package',
                     type: 'glam',
                     includes: [
-                        'Makeup'
+                        'Makeup',
+                        'Hair styling is available upon request and will incur an additional fee ranging from 2,500 to 3,000 ETB.'
                     ],
                     description: 'This package provides a bold and full glam makeup experience. It is perfect for clients who want a dramatic, high-impact, and camera-ready look.',
                     price: 10000,
@@ -184,9 +185,9 @@ const Booking = () => {
 
   return (
     <>
-      <div className="md:px-10 text-[#333333] bg-white py-16">
-        <div className="py-10">
-          <div className="w-full grid md:grid-cols-3 md:px-16 gap-10 ">
+      <div className=" text-[#333333] bg-white py-16">
+        <div className="py-10 md:px-10">
+          <div className="w-full grid xl:grid-cols-3 md:px-16 gap-10">
             <div className="w-full md:pr-4">
               <div className="w-80 md:w-90 min-h-52 h-full relative p-2 md:p-6 z-40">
                 <Image
@@ -204,8 +205,8 @@ const Booking = () => {
               </div>
             </div>
 
-            <div className="relative col-span-2 space-y-4 md:px-0 mt-10 md:mt-0">
-              <h3 className="text-3xl md:text-4xl py-5 text-gray-500 font-light">
+            <div className="relative col-span-2 space-y-4 md:px-0 mt-10 md:mt-0 z-50">
+              <h3 className="text-3xl md:text-4xl py-5 font-light">
                 Because being beautiful should never harm you
               </h3>
 

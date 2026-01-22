@@ -151,7 +151,7 @@ export default function WorksInHome() {
           
         </motion.div>
         <div className='relative w-full md:h-fit'>
-          <div className='absolute z-50 bg-gradient-to-b from-transparent via-transparent to-white w-full h-full'>.</div>
+          <div className='absolute z-40 bg-gradient-to-b from-transparent via-transparent to-white w-full h-full'>.</div>
           <Masonry
             items={allImages}
             ease="power3.out"

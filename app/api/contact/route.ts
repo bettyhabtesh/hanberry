@@ -1,10 +1,10 @@
-import { bookingSummaryEmail } from '@/components/emailtemplate/bookingsummary';
+import { contactEmail } from '@/components/emailtemplate/contactmessage';
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
 export async function POST(req: Request) {
   try {
-    const { fullname, phone, date, quantity, packageName, packagePrice, includes, duration } = await req.json();
+    const { useremail, message } = await req.json();
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -17,9 +17,9 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       from: "Hanberry Beauty Website",
       to: 'frehiwot.tewodros112@gmail.com',
-      subject: 'Hanberry Beauty Booking Form Submission',
-      html:  bookingSummaryEmail({
-        fullname, phone, date, quantity, packageName, packagePrice, includes, duration
+      subject: 'Hanberry Beauty Contact Form Message',
+      html:  contactEmail({
+        useremail, message
       }),
     })
 
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
   } catch (error) {
     console.error('Error sending email:', error);
     return NextResponse.json(
-      { success: false, error: 'Booking failed, try again' },
+      { success: false, error: 'Sending message failed, try again' },
       { status: 500 }
     )
   }

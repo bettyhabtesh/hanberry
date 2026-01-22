@@ -1,20 +1,56 @@
+'use client'
 import Image from 'next/image'
+import { useState } from 'react';
 // import React from 'react'
 
 const Contact = () => {
+
+  const [useremail, setUserEmail] = useState('');
+  const [message, setMesssage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+          try {
+  
+              e.preventDefault();
+              setLoading(true);
+              setError('');
+              
+              await fetch('/api/contact', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ 
+                      useremail, 
+                      message
+                  }),
+              })
+              setLoading(false);
+              setSuccess('Message sent successfully!');
+              setUserEmail('');
+              setMesssage('');
+  
+          } catch (error: unknown) {
+              console.log(error)
+              setError('Error sending message, try again.');
+          }
+          
+      }
+
   return (
-    <div className='relative w-full md:h-screen grid md:grid-cols-2 gap-5 bg-white text-black px-5 md:px-16 pt-24 '>
+    <div className='relative w-full h-full grid xl:grid-cols-2 gap-5 bg-white text-black px-5 md:px-16 pt-24 '>
         <div className='my-auto py-16 relative pb-24'>
             <h3 className='text-3xl md:text-5xl font-bold pb-4 uppercase'>Get in Touch, Gorgeous</h3>
             <p className='text-sm text-[#2E2E2E]/70 font-light'>She is just a message away! Tell her about your occasion, your favorite style, or ask anything — She’ll get back to you as soon as possible. Let’s make your beauty dreams come true.</p>
 
-            <form className='py-8 space-y-5 md:w-2/3'>
+            <form onSubmit={handleSubmit} className='py-8 space-y-5 md:w-2/3'>
               <div className='flex flex-col space-y-2'>
                 <label className='font-bold'>Email</label>
                 <input 
-                  id='email'
                   type='email'
                   name='email'
+                  onChange={(e) => {setUserEmail(e.target.value)}}
                   placeholder='Enter your email here'
                   className='bg-[#E0BFB8]/20 rounded-4xl px-5 py-3 placeholder:text-[#B49E83] text-sm'
                 />
@@ -24,14 +60,20 @@ const Contact = () => {
                 <textarea 
                   id='message'
                   name='message'
+                  onChange={(e) => {setMesssage(e.target.value)}}
                   placeholder='Write your message here'
                   className='bg-[#E0BFB8]/20 rounded-4xl px-5 py-3 h-48 placeholder:text-[#B49E83] text-sm'
                 ></textarea>
               </div>
+
+              {error && <h3 className='text-red-500'>{error}</h3>}
+              {success && <h3 className='text-green-500'>{success}</h3>}
+
               <button
-                className='bg-[#D8A48F]  w-full rounded-4xl py-3 font-semibold text-black/90'
+                type='submit'
+                className='bg-[#1E1E1E]  w-full rounded-4xl py-3 font-semibold text-white'
               >
-                Send Message
+                {loading ? `loading...` : `Send Message`}
               </button>
             </form>
         </div>
