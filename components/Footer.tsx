@@ -34,7 +34,7 @@ const Footer = () => {
                     <h3 className='text-xl font-bold'>Contact</h3>
                     <ul className='text-sm py-2 text-white/70 space-y-1 group group-hover:text-[#D8A48F] hover:cursor-pointer'>
                         <li className='hover:text-[#E7C9B6]'> +251 935 71 23 62 </li>
-                        <li className='hover:text-[#E7C9B6]'> +251 914 671 613 </li>
+                        <li className='hover:text-[#E7C9B6]'> +251 914 67 16 13 </li>
                         <li className='hover:text-[#E7C9B6]'> Addis Ababa, Ethiopia </li>
                     </ul>
                 </div>

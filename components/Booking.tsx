@@ -31,7 +31,7 @@ const Booking = () => {
                     description: 'This package includes professional bridal makeup for a clean and elegant look. It is perfect for brides who want a simple yet beautiful finish.',
                     price: 30000,
                     background: '/images/glam.png',
-                    duration: '2-3 hr'
+                    duration: '1:30 - 2 hr'
                 },
                 {
                     id: 2,
@@ -43,7 +43,7 @@ const Booking = () => {
                     description: 'This package offers full bridal preparation including dermaplaning, hairstyling, and makeup. It gives a smooth, polished, and long-lasting bridal look.',
                     price: 35000,
                     background: '/images/gold.png',
-                    duration: '2-3 hr'
+                    duration: '3-4 hr'
                 },
                 {
                     id: 3,
@@ -55,7 +55,7 @@ const Booking = () => {
                     description: 'This is a complete premium bridal package with skin prep, hairstyling, and makeup. A retouch is included to keep your look fresh throughout the event.',
                     price: 45000,
                     background: '/images/platinum.png',
-                    duration: '2-3 hr'
+                    duration: '3-4 hr'
                 },
                 {
                     id: 4,
@@ -67,7 +67,7 @@ const Booking = () => {
                     description: 'This package provides makeup services suitable for traditional or special cultural events. It focuses on enhancing natural beauty with a neat and elegant finish.',
                     price: 15000,
                     background: '/images/glam.png',
-                    duration: '2-3 hr'
+                    duration: '1:30 - 2 hr'
                 },
             ]
         },
@@ -85,7 +85,7 @@ const Booking = () => {
                     description: 'This package includes simple and elegant makeup for bridesmaids. It ensures a coordinated and natural look that complements the bride.',
                     price: 1000,
                     background: '/images/glam.png',
-                    duration: '2-3 hr'
+                    duration: '1:30 - 2 hr'
                 },
                 {
                     id: 6,
@@ -98,7 +98,7 @@ const Booking = () => {
                     description: 'This package offers both makeup and hairstyling for bridesmaids. It creates a more refined and polished appearance for special occasions.',
                     price: 12000,
                     background: '/images/glam.png',
-                    duration: '2-3 hr'
+                    duration: '1:30 - 2 hr'
                 },
                 {
                     id: 7,
@@ -112,7 +112,7 @@ const Booking = () => {
                     description: 'This package offers makeup, retouch and hairstyling for bridesmaids. It creates a more refined and polished appearance for special occasions.',
                     price: 15000,
                     background: '/images/glam.png',
-                    duration: '2-3 hr'
+                    duration: '1:30 - 2 hr'
                 },
             ]
         },
@@ -130,7 +130,7 @@ const Booking = () => {
                     description: 'This package delivers soft glam makeup with a clean and modern finish. It is ideal for clients who want a glamorous look without heavy styling.',
                     price: 85000,
                     background: '/images/glam.png',
-                    duration: '2-3 hr'
+                    duration: '1:30 - 2 hr'
                 },
                 {
                     id: 8,
@@ -142,7 +142,7 @@ const Booking = () => {
                     description: 'This package provides a bold and full glam makeup experience. It is perfect for clients who want a dramatic, high-impact, and camera-ready look.',
                     price: 10000,
                     background: '/images/glam.png',
-                    duration: '2-3 hr'
+                    duration: '1:30 - 2 hr'
                 },
             ]
         },
@@ -186,8 +186,8 @@ const Booking = () => {
     <>
       <div className="md:px-10 text-[#333333] bg-white py-16">
         <div className="py-10">
-          <div className="w-full grid md:grid-cols-3 md:px-16 gap-10">
-            <div className="w-full pr-4">
+          <div className="w-full grid md:grid-cols-3 md:px-16 gap-10 ">
+            <div className="w-full md:pr-4">
               <div className="w-80 md:w-90 min-h-52 h-full relative p-2 md:p-6 z-40">
                 <Image
                   src="/images/b11.PNG"
@@ -204,12 +204,12 @@ const Booking = () => {
               </div>
             </div>
 
-            <div className="relative col-span-2 space-y-4 px-5 md:px-0 mt-10 md:mt-0">
+            <div className="relative col-span-2 space-y-4 md:px-0 mt-10 md:mt-0">
               <h3 className="text-3xl md:text-4xl py-5 text-gray-500 font-light">
                 Because being beautiful should never harm you
               </h3>
 
-              <div className="flex space-x-5">
+              <div className="flex md:space-x-5">
                 {packages.map((p) => (
                   <button
                     key={p.id}
@@ -229,29 +229,30 @@ const Booking = () => {
                 {packages[currentPackage].name} Packages
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 auto-rows-fr">
+              <div className="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-5">
                 {visibleTypes.map((type, i) => (
                   <div
                     key={type.id}
-                    className="flex flex-col h-full border border-[#1E1E1E] rounded-md px-3 py-5"
+                    className="flex flex-col justify-between h-full border border-[#1E1E1E] rounded-md px-3 py-5"
                   >
-                    <h3 className="text-3xl font-bold pb-3">{type.name}</h3>
-                    <p>{type.description}</p>
+                    <div>
+                      <h3 className="text-3xl font-bold pb-3">{type.name}</h3>
+                      <p>{type.description}</p>
 
-                    <p>Includes</p>
-                    <ul className="pl-3">
-                      {type.includes.map((item) => (
-                        <li key={item} className="flex gap-3">
-                          ● {item}
-                        </li>
-                      ))}
-                    </ul>
+                      <p>Includes</p>
+                      <ul className="pl-3">
+                        {type.includes.map((item) => (
+                          <li key={item} className="flex gap-3">
+                            ● {item}
+                          </li>
+                        ))}
+                      </ul>
 
-                    <p>Duration: {type.duration}</p>
-                    <p>Price: {type.price} <b>ETB</b></p>
-
+                      <p>Duration: {type.duration}</p>
+                      <p>Price: {type.price} <b>ETB</b></p>
+                    </div>
                     <button
-                      className="mt-auto w-full bg-[#1E1E1E] text-white rounded-md py-2"
+                      className="my-2 relative bottom-0 w-full bg-[#1E1E1E] text-white rounded-md py-2 cursor-pointer border-2 border-[#1E1E1E] hover:text-[#1E1E1E] hover:bg-white"
                       onClick={() => {
                         setOpenForm(true)
                         setBooked(typeIndex + i)
@@ -264,7 +265,7 @@ const Booking = () => {
               </div>
 
               {hasMultiplePages && (
-                <div className="flex justify-between items-center py-10">
+                <div className="flex justify-between items-center py-10 text-sm">
                   <button
                     onClick={() =>
                       setTypeIndex(

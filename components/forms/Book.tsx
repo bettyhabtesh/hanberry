@@ -22,21 +22,28 @@ const Book = ({pkg, onClose} : {pkg: {
     const [quantity, setQuantity] = useState(1);
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
-    const [onCloseSuccess, setOnCloseSuccess] = useState(false);
-
+    const [totalPrice, setTotalPrice] = useState(pkg.price);
 
     const [loading, setLoading] = useState(false);
 
-    
     const handleQuantityIncrease = () => {
-        setQuantity(quantity + 1);
-    }
+        setQuantity(prevQty => {
+            const newQty = prevQty + 1;
+            setTotalPrice(newQty * pkg.price);
+            return newQty;
+        });
+    };
 
     const handleQuantityDecrease = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
-        }
-    }
+        setQuantity(prevQty => {
+            if (prevQty > 1) {
+            const newQty = prevQty - 1;
+            setTotalPrice(newQty * pkg.price);
+            return newQty;
+            }
+            return prevQty;
+        });
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -54,7 +61,9 @@ const Book = ({pkg, onClose} : {pkg: {
                 packagePrice: pkg.price,
                 packageType: pkg.type,
                 duration: pkg.duration,
-                email: email || null
+                email: email || null,
+                totalPrice,
+                includes: pkg.includes
             }),
         })
 
@@ -65,29 +74,33 @@ const Book = ({pkg, onClose} : {pkg: {
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center overflow-scroll bg-black/50 p-5'>
-        <div className='bg-gradient-to-br from-[#C19F98] via-[#ffffff] to-[#ffffff] text-black w-full md:w-4/5 mx-auto my-auto rounded-xl grid md:grid-cols-2 gap-10 p-5 md:px-10 py-16'>
-            <div>
-                <h3 className='text-2xl md:text-4xl font-bold'>Booking Form</h3>
+        <div className='bg-gradient-to-b md:bg-gradient-to-br from-[#C19F98] via-[#ffffff] via-[#ffffff] to-[#ffffff] text-black w-full md:w-4/5 mx-auto my-auto rounded-xl grid md:grid-cols-2 gap-10 p-5 md:px-10 py-16'>
+            <div className='flex flex-col  justify-between h-full'>
 
-                <h5 className='text-lg font-light mt-10'>Package detail</h5>
-                <h3 className='text-xl md:text-3xl font-bold pb-3'>{pkg.name}</h3>
+                <div>
+                    <h3 className='text-3xl md:text-4xl font-extrabold'>Booking Form</h3>
 
-                <div className='space-y-3'>
-                    <p className=''>{pkg.description} </p>
-                    {/* <p className='text-center'>Perfect for your wedding day — timeless beauty that lasts all day.</p> */}
-                    <p className=''>Includes</p>
-                    <ul className='pl-3'>
-                        {pkg.includes.map((item) => (
-                            <li key={item} className='flex items-center gap-3'> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#000000"/></svg>{item}</li>
-                        ))}
-                    </ul>
-                    <p className=''>Duration: {pkg.duration} </p>
-                    <p className=''>Price: {pkg.price} <b>ETB</b> </p>
+                    <h5 className='text-lg font-light mt-10'>Package detail</h5>
+                    <h3 className='text-xl md:text-3xl font-bold pb-3'>{pkg.name}</h3>
+
+                    <div className='space-y-3'>
+                        <p className=''>{pkg.description} </p>
+                        {/* <p className='text-center'>Perfect for your wedding day — timeless beauty that lasts all day.</p> */}
+                        <p className=''>Includes</p>
+                        <ul className='pl-3'>
+                            {pkg.includes.map((item) => (
+                                <li key={item} className='flex items-center gap-3'> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#000000"/></svg>{item}</li>
+                            ))}
+                        </ul>
+                        <p className=''>Duration: {pkg.duration} </p>
+                        <p className=''>Price: {pkg.price} <b>ETB</b> </p>
+                    </div>
                 </div>
-
+                <p className='relative bottom-0 text-sm bg-[#1E1E1E] text-white rounded-md p-5 mt-10'>This booking is only to check availability. No payment is required. The makeup artist will contact you directly to confirm details and payment.</p>
             </div>
             <div className='p-5 rounded-lg bg-white shadow-2xl space-y-2 md:p-10'>
-                <h3 className='text-2xl mb-5 font-bold'>Fill in the form below</h3>
+                {/* <p className='text-sm text-black/50'>This booking is only to check availability. No payment is required. The makeup artist will contact you directly to confirm details and payment.</p> */}
+                <h3 className='text-2xl font-bold mb-5'>Fill in the form below</h3>
                 <form onSubmit={handleSubmit} className='space-y-8'>
                     <div>
                         <h3 className='font-semibold'>Full Name</h3>
@@ -113,7 +126,6 @@ const Book = ({pkg, onClose} : {pkg: {
                                 onChange={(e) => {
                                     // Allow only numbers
                                     const value = e.target.value.replace(/\D/g, '');
-
                                     // Force start with 9
                                     if (value === '' || value.startsWith('9')) {
                                     setPhone(value);
@@ -123,7 +135,7 @@ const Book = ({pkg, onClose} : {pkg: {
                             />
                         </div>
                     </div>
-                     <div>
+                    <div>
                         <h3 className='font-semibold'>Email</h3>
                         <input
                             type='email'
@@ -158,15 +170,22 @@ const Book = ({pkg, onClose} : {pkg: {
                             </button>
                         </div>
                     </div>
-                    <div>
-                        <button type='submit' className='bg-[#1E1E1E] text-white py-2 w-full rounded-lg'>{loading ? 'Loading...' : 'Book Now'}</button>
-                        <button type='button' onClick={onClose} className='text-black py-2 w-full rounded-lg'>Cancel</button>
+
+                    <div className='bg-black/4 p-5 rounded-lg'>
+                        <h3 className='text-md'>Total price: <b>{totalPrice} ETB</b></h3>
+                        <div className=''>
+                            {/* <p className='text-sm text-black/50 text-center'>This booking is only to check availability. No payment is required. The makeup artist will contact you directly to confirm details and payment.</p> */}
+                            <button type='submit' className='bg-[#1E1E1E] text-white py-2 w-full rounded-lg mt-3'>{loading ? 'Loading...' : 'Book Now'}</button>
+                            <button type='button' onClick={onClose} className='text-black py-2 w-full rounded-lg'>Cancel</button>
+                        </div>
                     </div>
+
+                    
                 </form>
             </div>
         </div>
 
-        {success && <Successful pkge={pkg} name={fullname} email={email || null} phone={phone} date={date} quantity={quantity} onClose={() => {setSuccess(false)}} />}
+        {success && <Successful pkge={pkg} name={fullname} email={email || null} phone={phone} date={date} quantity={quantity} totalPrice={totalPrice} onClose={() => {setSuccess(false)}} />}
     </div>
   )
 }
