@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: "Hanberry Beauty Website",
-      to: 'frehiwot.tewodros112@gmail.com',
+      to: 'hami0935712362@gmail.com',
       subject: 'Hanberry Beauty Contact Form Message',
       html:  contactEmail({
         useremail, message

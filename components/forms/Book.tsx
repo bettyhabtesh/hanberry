@@ -105,10 +105,10 @@ const Book = ({pkg, onClose} : {pkg: {
                         <p className=''>Price: {pkg.price} <b>ETB</b> </p>
                     </div>
                 </div>
-                <p className='relative bottom-0 text-sm bg-[#1E1E1E] text-white rounded-md p-5 mt-10'>This booking is only to check availability. No payment is required. The makeup artist will contact you directly to confirm details and payment.</p>
+                <p className='relative bottom-0 text-sm bg-[#1E1E1E] text-white rounded-md p-5 mt-10'>This booking is for availability checking only. Confirmation and payment process will be arranged directly with the makeup artist.</p>
             </div>
             <div className='p-5 rounded-lg bg-white shadow-2xl space-y-2 md:p-10'>
-                {/* <p className='text-sm text-black/50'>This booking is only to check availability. No payment is required. The makeup artist will contact you directly to confirm details and payment.</p> */}
+                {/* <p className='text-sm text-black/50'>This booking is for availability checking only. Confirmation and payment process will be arranged directly with the makeup artist.</p> */}
                 <h3 className='text-2xl font-bold mb-5'>Fill in the form below</h3>
                 <form onSubmit={handleSubmit} className='space-y-8'>
                     <div>
@@ -183,7 +183,7 @@ const Book = ({pkg, onClose} : {pkg: {
                     <div className='bg-black/4 p-5 rounded-lg'>
                         <h3 className='text-md'>Total price: <b>{totalPrice} ETB</b></h3>
                         <div className=''>
-                            {/* <p className='text-sm text-black/50 text-center'>This booking is only to check availability. No payment is required. The makeup artist will contact you directly to confirm details and payment.</p> */}
+                            {/* <p className='text-sm text-black/50 text-center'>This booking is for availability checking only. Confirmation and payment process will be arranged directly with the makeup artist.</p> */}
                             <button type='submit' className='bg-[#1E1E1E] text-white py-2 w-full rounded-lg mt-3'>{loading ? 'Loading...' : 'Book Now'}</button>
                             <button type='button' onClick={onClose} className='text-black py-2 w-full rounded-lg'>Cancel</button>
                         </div>
