@@ -42,7 +42,7 @@ const Contact = () => {
     <div className='relative w-full h-full grid xl:grid-cols-2 gap-5 bg-white text-black px-5 md:px-16 pt-24 '>
         <div className='my-auto py-16 relative pb-24'>
             <h3 className='text-3xl md:text-5xl font-bold pb-4 uppercase'>Get in Touch, Gorgeous</h3>
-            <p className='text-sm text-[#2E2E2E]/70 font-light'>She is just a message away! Tell her about your occasion, your favorite style, or ask anything — She’ll get back to you as soon as possible. Let’s make your beauty dreams come true.</p>
+            <p className='text-sm text-[#2E2E2E]/70 font-light'>We’re just a message away. Share details about your occasion, preferred aesthetic, or any inquiries, and the Hanberry Beauty team will respond promptly. Let us enhance your natural beauty with timeless elegance and refined artistry.</p>
 
             <form onSubmit={handleSubmit} className='py-8 space-y-5 md:w-2/3'>
               <div className='flex flex-col space-y-2'>

@@ -16,13 +16,29 @@ export default function Navbar() {
 
   return (
     <>
+      <div className='w-full bg-white text-black px-10 shadow-2xl'>
+        <div className="w-full py-3 md:flex items-center justify-center space-x-5 md:space-x-16 border-b-2 border-gray-200">
+          <div className="flex items-center space-x-3 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-telephone-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+            </svg>
+            <h3>+251 935 71 23 62 | 914 67 16 13</h3>
+          </div>
+          <div className="flex items-center space-x-3 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-envelope-fill" viewBox="0 0 16 16">
+              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+            </svg>
+            <h3>hami0935712362@gmail.com</h3>
+          </div>
+        </div>
+      </div>
       {/* desktop menu */}
       <nav
         className={`hidden w-full md:flex items-center justify-between px-10 py-4 bg-white shadow-sm ${poppins.className}`}
       >
         {/* Left links with divider */}
         <div className="flex flex-col items-start">
-          <div className="flex items-center gap-14 text-l md:text-l font-light">
+          <div className="flex items-center gap-14 text-l md:text-l font-light ">
             <Link href="#home" className="hover:text-[#C9A34E] text-black transition-colors">
               Home
             </Link>
@@ -34,11 +50,11 @@ export default function Navbar() {
             </Link>
           </div>
           {/* horizontal line directly below left links */}
-          <div className="mt-4 mb-6 h-px bg-gray-300 w-150" aria-hidden="true" />
+          <div className="mt-4 mb-6 h-px bg-gray-300 w-full" aria-hidden="true" />
         </div>
 
         {/* Logo Center */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center w-fit">
           <Image
             src="/images/HanBerry BEAUTY.png"
             alt="HanBerry Beauty"
@@ -59,7 +75,7 @@ export default function Navbar() {
             </button>
           </div>
           {/* horizontal line directly below right links */}
-          <div className="mt-4 mb-6 h-px bg-gray-300 w-150" aria-hidden="true" />
+          <div className="mt-4 mb-6 h-px bg-gray-300 w-full" aria-hidden="true" />
         </div>
       </nav>
 
