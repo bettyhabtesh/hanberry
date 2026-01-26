@@ -30,7 +30,8 @@ const Booking = () => {
                     description: 'This package includes professional bridal makeup for a clean and elegant look. It is perfect for brides who want a simple yet beautiful finish.',
                     price: 30000,
                     background: '/images/glam.png',
-                    duration: '1:30 - 2 hr'
+                    duration: '1:30 - 2 hr',
+                    optional: null
                 },
                 {
                     id: 2,
@@ -42,7 +43,8 @@ const Booking = () => {
                     description: 'This package offers full bridal preparation including dermaplaning, hairstyling, and makeup. It gives a smooth, polished, and long-lasting bridal look.',
                     price: 35000,
                     background: '/images/gold.png',
-                    duration: '3-4 hr'
+                    duration: '3-4 hr',
+                    optional: null
                 },
                 {
                     id: 3,
@@ -54,7 +56,8 @@ const Booking = () => {
                     description: 'This is a complete premium bridal package with skin prep, hairstyling, and makeup. A retouch is included to keep your look fresh throughout the event.',
                     price: 45000,
                     background: '/images/platinum.png',
-                    duration: '3-4 hr'
+                    duration: '3-4 hr',
+                    optional: null
                 },
                 {
                     id: 4,
@@ -66,7 +69,8 @@ const Booking = () => {
                     description: 'This package provides makeup services suitable for traditional or special cultural events. It focuses on enhancing natural beauty with a neat and elegant finish.',
                     price: 15000,
                     background: '/images/glam.png',
-                    duration: '1:30 - 2 hr'
+                    duration: '1:30 - 2 hr',
+                    optional: null
                 },
             ]
         },
@@ -84,7 +88,8 @@ const Booking = () => {
                     description: 'This package includes simple and elegant makeup for bridesmaids. It ensures a coordinated and natural look that complements the bride.',
                     price: 10000,
                     background: '/images/glam.png',
-                    duration: '1:30 - 2 hr'
+                    duration: '1:30 - 2 hr',
+                    optional: null
                 },
                 {
                     id: 6,
@@ -97,7 +102,8 @@ const Booking = () => {
                     description: 'This package offers both makeup and hairstyling for bridesmaids. It creates a more refined and polished appearance for special occasions.',
                     price: 12000,
                     background: '/images/glam.png',
-                    duration: '1:30 - 2 hr'
+                    duration: '1:30 - 2 hr',
+                    optional: null
                 },
                 {
                     id: 7,
@@ -111,7 +117,8 @@ const Booking = () => {
                     description: 'This package offers makeup, retouch and hairstyling for bridesmaids. It creates a more refined and polished appearance for special occasions.',
                     price: 15000,
                     background: '/images/glam.png',
-                    duration: '1:30 - 2 hr'
+                    duration: '1:30 - 2 hr',
+                    optional: null
                 },
             ]
         },
@@ -125,12 +132,12 @@ const Booking = () => {
                     type: 'glam',
                     includes: [
                         'Makeup',
-                        'Hair styling is available upon request and will incur an additional fee ranging from 2,500 to 3,000 ETB.'
                     ],
                     description: 'This package delivers soft glam makeup with a clean and modern finish. It is ideal for clients who want a glamorous look without heavy styling.',
                     price: 8500,
                     background: '/images/glam.png',
-                    duration: '1:30 - 2 hr'
+                    duration: '1:30 - 2 hr',
+                    optional: 'Hair styling is available upon request and will incur an additional fee ranging from 2,500 to 3,000 ETB.'
                 },
                 {
                     id: 8,
@@ -138,12 +145,12 @@ const Booking = () => {
                     type: 'glam',
                     includes: [
                         'Makeup',
-                        'Hair styling is available upon request and will incur an additional fee ranging from 2,500 to 3,000 ETB.'
                     ],
                     description: 'This package provides a bold and full glam makeup experience. It is perfect for clients who want a dramatic, high-impact, and camera-ready look.',
                     price: 10000,
                     background: '/images/glam.png',
-                    duration: '1:30 - 2 hr'
+                    duration: '1:30 - 2 hr',
+                    optional: 'Hair styling is available upon request and will incur an additional fee ranging from 2,500 to 3,000 ETB.'
                 },
             ]
         },
@@ -251,6 +258,7 @@ const Booking = () => {
 
                       <p>Duration: {type.duration}</p>
                       <p>Price: {type.price} <b>ETB</b></p>
+                      {type?.optional ? <p className='text-black/50 text-sm text-center py-5'> {type.optional} </p> : '' }
                     </div>
                     <button
                       className="my-2 relative bottom-0 w-full bg-[#1E1E1E] text-white rounded-md py-2 cursor-pointer border-2 border-[#1E1E1E] hover:text-[#1E1E1E] hover:bg-white"

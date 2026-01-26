@@ -55,10 +55,10 @@ const features = [
 export default function HanberryFeaturesPage() {
   return (
     <div 
-      className="min-h-screen relative overflow-hidden font-poppins bg-white text-black md:py-16 px-16"
+      className="min-h-screen relative overflow-hidden font-poppins bg-white text-black md:py-16 px-5 md:px-16"
       // style={{ backgroundImage: "url('/images/b1.png')" }}
     >
-      <div className='grid lg:grid-cols-2 gap-16 py-16'>
+      <div className='grid lg:grid-cols-2 md:gap-16 py-16'>
         <div>
           <div className='bg-black text-white px-5 py-5'><h3>Hanberry <span className='text-5xl font-bold'>FEATURES</span></h3></div>
           <div className='relative w-full md:w-4/5 min-h-52 h-full md:p-6 z-40'>
@@ -71,7 +71,7 @@ export default function HanberryFeaturesPage() {
             <div className="absolute border-4 border-white z-50 w-full h-full" />
           </div>
         </div>
-        <div className='relative pt-10'>
+        <div className='relative pt-24 md:pt-0y'>
           <div className='space-y-5'>
             {features.map((feat) => (
               <div key={feat.num}>
