@@ -42,11 +42,14 @@ export default function Navbar() {
             <Link href="#home" className="hover:text-[#C9A34E] text-black transition-colors">
               Home
             </Link>
-            <Link href="#about" className="hover:text-[#C9A34E] text-black transition-colors">
-              About Me
+            <Link href="#works" className="hover:text-[#C9A34E] text-black transition-colors">
+              Works
             </Link>
-            <Link href="#services" className="hover:text-[#C9A34E] text-black transition-colors">
+            <Link href="#booking" className="hover:text-[#C9A34E] text-black transition-colors">
               Services
+            </Link>
+            <Link href="#about" className="hover:text-[#C9A34E] text-black transition-colors">
+              The Artist
             </Link>
           </div>
           {/* horizontal line directly below left links */}
@@ -70,9 +73,9 @@ export default function Navbar() {
             <Link href="#contact" className="hover:text-[#C9A34E] text-black md:text-l transition-colors">
               Contact
             </Link>
-            <button className="bg-[#C9A34E] text-white px-4 py-2 rounded-full hover:bg-[#b89240] md:text-lg transition-colors">
+            <Link href='#booking' className="bg-[#C9A34E] text-white px-4 py-2 rounded-full hover:bg-[#b89240] md:text-lg transition-colors">
               Book Now
-            </button>
+            </Link>
           </div>
           {/* horizontal line directly below right links */}
           <div className="mt-4 mb-6 h-px bg-gray-300 w-full" aria-hidden="true" />

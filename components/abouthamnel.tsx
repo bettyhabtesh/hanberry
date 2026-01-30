@@ -48,7 +48,7 @@ const stats = [
 
 export default function AboutHamneal() {
   return (
-    <div className="w-full font-poppins">
+    <div id='about' className="w-full font-poppins">
       {/* Top Section - Light Brown Background */}
       <div className="bg-[#E7C9B6] py-8 md:py-12 lg:py-16">
         <div className="container mx-auto px-4 sm:px-8 lg:px-16">

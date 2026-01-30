@@ -8,6 +8,7 @@ import WorksInHome from '@/components/worksinhome';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Booking from '@/components/Booking';
+import Videos from '@/components/Videos';
 
 export default function Home() {
   return (
@@ -15,11 +16,12 @@ export default function Home() {
       <Navbar />
       <HeroSection/>
       <MakeupIntro/>
-      <Features/>   
-      <AboutHamneal/>
+      <Videos/>
       <MakeupGallery/>
       <Booking/>
       <WorksInHome/>
+      <AboutHamneal/>
+      <Features/>   
       <Contact/>
       <Footer/>
     </div>
