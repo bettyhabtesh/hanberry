@@ -43,27 +43,28 @@ export default function MakeupGallery() {
   const currentStyle = makeupStyles[activeIndex];
 
   return (
-    <div className="w-full bg-white font-poppins py-6 md:py-8 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-8 lg:px-16">
+    <div className="w-full bg-white py-6 md:py-8 lg:py-24">
+      <div className="container px-4 md:px-16">
         {/* Top Divider Line */}
         {/* <div className="h-px bg-[#F8E7E3] mb-6 md:mb-8"></div> */}
 
         {/* Text Content Section */}
-        <div className="my-6 md:my-8">
+        <div className="w-full my-6 md:my-8">
           {/* Main Title - Cursive/Elegant Font */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-bold mb-10 md:mb-8 text-black uppercase"
+            className="text-4xl md:text-6xl mb-10 md:mb-8 text-black"
+            style={{fontFamily: 'salvager'}}
             // style={{ fontFamily: 'Georgia, serif' }}
           >
             Makeup Crafted for Every Occasion
           </motion.h1>
 
           {/* Content Container with Sub-heading, Description, and Navigation */}
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+          <div className="w-full flex flex-col md:flex-row md:items-start md:justify-between gap-6">
             {/* Left Side - Sub-heading and Description */}
             <div className="flex-1">
               <AnimatePresence mode="wait">
@@ -77,7 +78,7 @@ export default function MakeupGallery() {
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-black">
                     {currentStyle.title}
                   </h2>
-                  <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-2xl">
+                  <p className="text-base text-md text-gray-500 leading-relaxed max-w-2xl">
                     {currentStyle.description}
                   </p>
                 </motion.div>
@@ -86,7 +87,7 @@ export default function MakeupGallery() {
 
             {/* Right Side - Navigation */}
             <div className="flex items-center gap-4">
-              <span className="text-black font-medium">Next</span>
+              <span className="text-black font-medium right-0">Next</span>
               <button
                 onClick={() => setActiveIndex((prev) => (prev + 1) % makeupStyles.length)}
                 className="w-10 h-10 bg-black flex items-center justify-center hover:bg-gray-800 transition-colors"

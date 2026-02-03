@@ -14,12 +14,12 @@ const allImages = [
       height: 850,
       type: '',
     },
-  {
-      id: "1",
-      img: "/images/g1.JPG",
-      height: 550,
-      type: '',
-    },
+    // {
+    //   id: "1",
+    //   img: "/images/g1.JPG",
+    //   height: 550,
+    //   type: '',
+    // },
     {
       id: "200",
       img: "/images/g21.JPG",
@@ -38,12 +38,12 @@ const allImages = [
       height: 1100,
       type: '',
     },
-    {
-      id: "4",
-      img: "/images/g4.PNG",
-      height: 450,
-      type: '',
-    },
+    // {
+    //   id: "4",
+    //   img: "/images/g4.PNG",
+    //   height: 450,
+    //   type: '',
+    // },
     {
       id: "400",
       img: "/images/g22.PNG",
@@ -56,12 +56,12 @@ const allImages = [
       height: 700,
       type: '',
     },
-    {
-      id: "6",
-      img: "/images/g6.JPG",
-      height: 800,
-      type: '',
-    },
+    // {
+    //   id: "6",
+    //   img: "/images/g6.JPG",
+    //   height: 800,
+    //   type: '',
+    // },
     {
       id: "7",
       img: "/images/g7.JPG",
@@ -74,24 +74,24 @@ const allImages = [
       height: 1050,
       type: '',
     },
-    {
-      id: "9",
-      img: "/images/g9.JPG",
-      height: 650,
-      type: '',
-    },
+    // {
+    //   id: "9",
+    //   img: "/images/g9.JPG",
+    //   height: 650,
+    //   type: '',
+    // },
     {
       id: "10",
       img: "/images/g10.JPG",
       height: 750,
       type: '',
     },
-    {
-      id: "11",
-      img: "/images/g11.PNG",
-      height: 650,
-      type: '',
-    },
+    // {
+    //   id: "11",
+    //   img: "/images/g11.PNG",
+    //   height: 650,
+    //   type: '',
+    // },
     {
       id: "12", // tinu
       img: "/images/g12.JPG",
@@ -142,7 +142,7 @@ export default function WorksInHome() {
   const [activeCategory, setActiveCategory] = useState('All');
 
   return (
-    <div id='works' className="w-full h-fit bg-white font-poppins py-12 md:py-16 lg:py-24 relative">
+    <div id='works' className="w-full h-fit bg-white font-poppins py-12 md:py-24 lg:py-24 relative">
       <div className="container mx-auto relative">
         {/* Header Section */}
         <motion.div
@@ -150,22 +150,24 @@ export default function WorksInHome() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="text-center mb-8 md:mb-12"
+          className="text-start mb-8 md:mb-12 px-4 md:px-16"
         >
           {/* Title - Elegant Script Font */}
           <h1 
-            className="text-3xl md:text-5xl uppercase font-bold  mb-8 md:mb-10 text-black"
+            style={{fontFamily: 'salvager'}}
+            className="text-4xl md:text-6xl mb-3 md:mb-5 text-black"
             // style={{ 
             //   fontFamily: 'Georgia, serif',
             //   fontStyle: 'italic',
             //   fontWeight: 400
             // }}
           >
-            Works
+            Elegant & Luxury Makeup Works
           </h1>
+          <p className="text-black text-md">Explore a curated selection of makeup looks, each crafted to enhance natural beauty and personal style.</p>
 
           {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 pb-10">
+          {/* <div className="flex flex-wrap justify-center gap-3 md:gap-4 pb-10">
             {categories.map((category) => (
               <button
                 key={category}
@@ -173,13 +175,13 @@ export default function WorksInHome() {
                 className={`px-6 py-2 md:px-8 md:py-3 rounded-md font-medium text-sm md:text-base transition-all ${
                   activeCategory === category
                     ? 'bg-[#1E1E1E] text-white'
-                    : 'bg-white text-[#1E1E1E] border border-gray-200 hover:border-gray-300'
+                    : 'bg-white text-black border border-gray-200 hover:border-gray-300'
                 }`}
               >
                 {category}
               </button>
             ))}
-          </div>
+          </div> */}
           
           
         </motion.div>
@@ -206,7 +208,7 @@ export default function WorksInHome() {
           variants={fadeInUp}
           className="flex justify-center relative bottom-0"
         >
-          <Link href="/gallery" className="bg-[#1E1E1E] text-white px-8 py-3 md:px-12 md:py-4 rounded-md font-semibold text-base md:text-lg hover:bg-[#D4B5A0] transition-colors ">
+          <Link href="/gallery" className="bg-black text-white px-8 py-2 md:px-12 md:py-3 text-base md:text-lg hover:bg-[#D4B5A0] transition-colors ">
             View More
           </Link>
         </motion.div>

@@ -60,7 +60,7 @@ export default function HanberryFeaturesPage() {
     >
       <div className='grid lg:grid-cols-2 md:gap-16 py-16'>
         <div>
-          <div className='bg-black text-white px-5 py-5'><h3>Hanberry <span className='text-5xl font-bold'>FEATURES</span></h3></div>
+          <div className='bg-black text-white px-5 py-5 text-3xl'><h3 style={{fontFamily: 'salvager'}}>Hanberry <span className='md:text-6xl'>FEATURES</span></h3></div>
           <div className='relative w-full md:w-4/5 min-h-52 h-full md:p-6 z-40'>
             <Image
               src='/images/g17.JPG'
@@ -72,12 +72,12 @@ export default function HanberryFeaturesPage() {
           </div>
         </div>
         <div className='relative pt-24 md:pt-0y'>
-          <div className='space-y-5'>
+          <div className='space-y-10'>
             {features.map((feat) => (
               <div key={feat.num}>
                 {feat.svg}
-                <h3 className='text-2xl font-bold py-2'>{feat.title}</h3>
-                <p className='text-black/50'>{feat.text}</p>
+                <h3 style={{fontFamily: 'salvager'}} className='text-2xl md:text-4xl py-2'>{feat.title}</h3>
+                <p className='text-black'>{feat.text}</p>
               </div>
             ))}
           </div>

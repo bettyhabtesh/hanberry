@@ -22,5 +22,13 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+@font-face {
+  font-family: 'salvager';
+  src: url('/fonts/SALVAGER.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  /* Add additional font weights/styles if you have more files */
 }

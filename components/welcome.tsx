@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Poppins, Italianno } from 'next/font/google';
 
+import { salvager } from '@/app/lib/fonts';
+
 const poppins = Poppins({ subsets: ['latin'], weight: ['300','400','500','600','700'], display: 'swap' });
 const italianno = Italianno({ subsets: ['latin'], weight: ['400'], display: 'swap' });
 
@@ -43,8 +45,10 @@ function TypingText({ text, className = '', delay = 0, charDelay = 0.03 }: { tex
 
 function MakeupIntro() {
   return (
-    <div className="w-full bg-[#E7C9B6] flex flex-col lg:flex-row">
-      {/* Left Image */}
+
+    <div className="w-full bg-black text-white flex flex-col lg:flex-row">
+      {/* Left Image bg-[#E7C9B6] */}
+
       <div className="w-full lg:w-1/2 h-screen overflow-hidden relative">
         <Image src="/images/w1.jpg" alt="Makeup model" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
       </div>
@@ -53,13 +57,13 @@ function MakeupIntro() {
       <div className="w-full lg:w-1/2 flex flex-col">
         {/* Text Area */}
         <div className="p-6 lg:p-16 flex-1 lg:max-w-4xl">
-          <p className="text-5xl lg:text-6xl mb-3 text-[#8B7A5D]">
-            <TypingText text="welcome" className={` italic ${italianno.className}`} delay={0.1} charDelay={0.14} />
+          <p className="text-xl lg:text-3xl mb-3 font-light">
+            <TypingText text="Welcome" delay={0.1} charDelay={0.14} />
           </p>
-          <h1 className="text-4xl lg:text-5xl font-medium text-black leading-tight mb-6">
-            <TypingText text="DIVE INTO THE WORLD OF MAKEUP BEAUTY" className={`text-4xl lg:text-5xl font-semibold text-black leading-tight ${poppins.className}`} delay={0.2} charDelay={0.12} />
+          <h1 style={{fontFamily: 'salvager'}} className="text-4xl lg:text-5xl leading-tight mb-6">
+            <h3 className='text-4xl lg:text-6xl leading-tight'> Dive into the world of makeup beauty </h3>
           </h1>
-          <p className="text-lg lg:text-xl text-gray-800 max-w-2xl">
+          <p className={`text-md lg:text-xl text-white/80 max-w-2xl ${salvager.variable}`}>
             “At Hanberry Beauty Lounge, beauty is more than makeup — it’s confidence, self-expression, and artistry.” – Hamneal N.
           </p>
         </div>

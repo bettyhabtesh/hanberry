@@ -50,7 +50,7 @@ export default function AboutHamneal() {
   return (
     <div id='about' className="w-full font-poppins">
       {/* Top Section - Light Brown Background */}
-      <div className="bg-[#E7C9B6] py-8 md:py-12 lg:py-16">
+      <div className="bg-black text-white py-8 md:py-12 lg:py-16">
         <div className="container mx-auto px-4 sm:px-8 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             {/* Left Side - Image */}
@@ -58,10 +58,9 @@ export default function AboutHamneal() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={imageRotate}
               className="relative w-full h-[400px] md:h-[450px] lg:h-[500px]"
             >
-              <div className="relative h-full w-full max-w-[400px] max-h-[400px] pl-4 mx-auto">
+              <div className="relative h-full w-full max-w-full max-h-[700px] pl-4 mx-auto">
                 <Image
                   src="/images/ham.PNG"
                   alt="Hamneal Nebiyu"
@@ -78,14 +77,14 @@ export default function AboutHamneal() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeInUp}
-              className="flex flex-col gap-4 text-black"
+              className="flex flex-col gap-4"
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-                THE FACE BEHIND THE BEAUTY
+              <h2 style={{fontFamily: 'salvager'}} className="text-4xl md:text-4xl lg:text-6xl tracking-tight">
+                The face behind the beauty
               </h2>
               
               <div className="flex flex-col gap-3 text-sm md:text-base leading-relaxed">
-                <p>
+                <p className='text-justify'>
                   Hamneal Nebiyu is a professional makeup artist with over twelve years of experience in the beauty industry. She has built a reputation for excellence, artistry, and timeless elegance that extends internationally. Internationally certified, Hamneal has collaborated with numerous global beauty companies and events, showcasing her skill and creative vision across diverse platforms.
                 </p>
                 <p>

@@ -192,10 +192,10 @@ const Booking = () => {
 
   return (
     <>
-      <div id='booking' className=" text-[#333333] bg-white py-16">
-        <div className="py-10 md:px-10">
-          <div className="w-full grid xl:grid-cols-3 md:px-16 gap-10">
-            <div className="w-full md:pr-4">
+      <div id='booking' className=" text-black bg-white py-16">
+        <div className="py-10 px-5 md:px-10">
+          <div className="w-full grid xl:grid-cols-3 md:px-16 gap-5">
+            <div className="w-full ">
               <div className="w-80 md:w-90 min-h-52 h-full relative p-2 md:p-6 z-40">
                 <Image
                   src="/images/b11.PNG"
@@ -206,25 +206,25 @@ const Booking = () => {
                 <div className="absolute border-4 border-white z-50 w-full h-full" />
               </div>
               <div className="absolute z-50">
-                <h3 className="uppercase bg-[#1E1E1E] text-white px-5 py-4 text-2xl">
+                <h3 style={{fontFamily: 'salvager'}} className=" bg-black text-white px-5 py-4 text-3xl">
                   Packages & Prices
                 </h3>
               </div>
             </div>
 
             <div className="relative col-span-2 space-y-4 md:px-0 mt-10 md:mt-0 z-50">
-              <h3 className="text-3xl md:text-4xl py-5 font-light">
+              <h3 style={{fontFamily: 'salvager'}} className="text-4xl md:text-6xl py-5">
                 Because being beautiful should never harm you
               </h3>
 
-              <div className="flex md:space-x-5">
+              <div className="flex space-x-5">
                 {packages.map((p) => (
                   <button
                     key={p.id}
                     onClick={() => handlePackageChange(p.id)}
                     className={`${
                       currentPackage === p.id
-                        ? 'bg-[#1E1E1E] text-white rounded-xl px-5 py-2'
+                        ? 'bg-black text-white px-5 py-2 md:py-3'
                         : ''
                     }`}
                   >
@@ -241,11 +241,11 @@ const Booking = () => {
                 {visibleTypes.map((type, i) => (
                   <div
                     key={type.id}
-                    className="flex flex-col justify-between h-full border border-[#1E1E1E] rounded-md px-3 py-5"
+                    className="flex flex-col justify-between h-full border border-black/30 rounded-md px-3 py-5"
                   >
                     <div>
-                      <h3 className="text-3xl font-bold pb-3">{type.name}</h3>
-                      <p>{type.description}</p>
+                      <h3 className="text-3xl font-semibold pb-3">{type.name}</h3>
+                      <p className='text-sm'>{type.description}</p>
 
                       <p>Includes</p>
                       <ul className="pl-3">
@@ -261,7 +261,7 @@ const Booking = () => {
                       {type?.optional ? <p className='text-black/50 text-sm text-center py-5'> {type.optional} </p> : '' }
                     </div>
                     <button
-                      className="my-2 relative bottom-0 w-full bg-[#1E1E1E] text-white rounded-md py-2 cursor-pointer border-2 border-[#1E1E1E] hover:text-[#1E1E1E] hover:bg-white"
+                      className="my-2 relative bottom-0 w-full bg-black text-white py-2 md:py-3 cursor-pointer border-2 border-black hover:text-black hover:bg-white"
                       onClick={() => {
                         setOpenForm(true)
                         setBooked(typeIndex + i)
