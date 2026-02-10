@@ -23,13 +23,13 @@ const allImages = [
     {
       id: "200",
       img: "/images/g21.JPG",
-      height: 750,
+      height: 650,
       type: '',
     },
     {
       id: "2",
-      img: "/images/g2.JPG",
-      height: 550,
+      img: "/images/o5.JPG",
+      height: 850,
       type: '',
     },
     {
@@ -52,8 +52,8 @@ const allImages = [
     },
     {
       id: "5",
-      img: "/images/g5.JPG",
-      height: 700,
+      img: "/images/o9.PNG",
+      height: 850,
       type: '',
     },
     // {
@@ -82,8 +82,8 @@ const allImages = [
     // },
     {
       id: "10",
-      img: "/images/g10.JPG",
-      height: 750,
+      img: "/images/o6.JPG",
+      height: 850,
       type: '',
     },
     // {
@@ -95,7 +95,13 @@ const allImages = [
     {
       id: "12", // tinu
       img: "/images/g12.JPG",
-      height: 650,
+      height: 550,
+      type: '',
+    },
+     {
+      id: "120", // tinu
+      img: "/images/o4.JPG",
+      height: 450,
       type: '',
     },
     // {
@@ -208,7 +214,7 @@ export default function WorksInHome() {
           variants={fadeInUp}
           className="flex justify-center relative bottom-0"
         >
-          <Link href="/gallery" className="bg-black text-white px-8 py-2 md:px-12 md:py-3 text-base md:text-lg hover:bg-[#D4B5A0] transition-colors ">
+          <Link href="/gallery" className="bg-black border border-black text-white px-8 py-2 md:px-12 md:py-3 text-base md:text-lg hover:bg-white hover:text-black transition-colors ">
             View More
           </Link>
         </motion.div>

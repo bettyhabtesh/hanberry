@@ -16,6 +16,29 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "HanBerry Beauty",
   description: "Be your own kind of beauty",
+  keywords: [
+    "makeup",
+    "beauty",
+    "Ethiopian makeup artist",
+    "Ethiopian",
+    "artist",
+    "creative",
+    "professional",
+    "bridal makeup",
+    "natural makeup",
+    "glamorous makeup",
+    "cultural makeup",
+    "editorial makeup",
+    "makeup styles",
+    "makeup gallery",
+    "makeup portfolio",
+    "makeup services",
+    "makeup looks",
+    "makeup trends",
+    "makeup inspiration",
+    "makeup artistry",
+    "makeup transformation",
+  ]
 };
 
 export default function RootLayout({
