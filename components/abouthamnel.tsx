@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import CountUp from './CountUp';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -29,20 +30,24 @@ const numberScale = {
 
 const stats = [
   {
-    value: "100K+",
-    label: "Happy Clients"
+    value: 100,
+    label: "Happy Clients",
+    side: "K"
   },
   {
-    value: "20%",
-    label: "Repeated Clients"
+    value: 20,
+    label: "Repeated Clients",
+    side: "%"
   },
   {
-    value: "15+",
-    label: "Premium Brand"
+    value: 15,
+    label: "Premium Brand",
+    side: "+"
   },
   {
-    value: "10+",
-    label: "Years of Experience"
+    value: 10,
+    label: "Years of Experience",
+    side: "+"
   }
 ];
 
@@ -121,10 +126,10 @@ export default function AboutHamneal() {
                   transition={{ delay: index * 0.1 }}
                   className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#E7C9B6] mb-2"
                 >
-                  {stat.value}
+                  <CountUp to={stat.value} from={0} side={stat.side}/>
                 </motion.div>
                 <div className="text-sm md:text-base font-medium text-black">
-                  {stat.label}
+                   {stat.label}
                 </div>
               </motion.div>
             ))}

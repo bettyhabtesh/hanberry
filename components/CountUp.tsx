@@ -12,6 +12,7 @@ interface CountUpProps {
   separator?: string;
   onStart?: () => void;
   onEnd?: () => void;
+  side: string;
 }
 
 export default function CountUp({
@@ -24,7 +25,8 @@ export default function CountUp({
   startWhen = true,
   separator = '',
   onStart,
-  onEnd
+  onEnd,
+  side
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(direction === 'down' ? to : from);
@@ -64,9 +66,13 @@ export default function CountUp({
 
       const formattedNumber = Intl.NumberFormat('en-US', options).format(latest);
 
-      return separator ? formattedNumber.replace(/,/g, separator) : formattedNumber;
+      const finalNumber = separator
+      ? formattedNumber.replace(/,/g, separator)
+      : formattedNumber;
+
+      return `${finalNumber}${side}`;
     },
-    [maxDecimals, separator]
+    [maxDecimals, separator, side]
   );
 
   useEffect(() => {
@@ -99,7 +105,7 @@ export default function CountUp({
         clearTimeout(durationTimeoutId);
       };
     }
-  }, [isInView, startWhen, motionValue, direction, from, to, delay, onStart, onEnd, duration]);
+  }, [isInView, startWhen, motionValue, direction, from, to, delay, onStart, onEnd, duration, side]);
 
   useEffect(() => {
     const unsubscribe = springValue.on('change', (latest: number) => {
@@ -111,5 +117,5 @@ export default function CountUp({
     return () => unsubscribe();
   }, [springValue, formatValue]);
 
-  return <span className={className} ref={ref} />;
+  return <span className={className} ref={ref}/>;
 }

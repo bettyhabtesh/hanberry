@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import Successful from '../Response/Successful';
+import Link from 'next/link';
 
 
 
@@ -83,7 +84,7 @@ const Book = ({pkg, onClose} : {pkg: {
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center overflow-scroll bg-black/50 p-5'>
-        <div className='bg-gradient-to-b md:bg-gradient-to-br from-[#C19F98] via-[#ffffff] via-[#ffffff] to-[#ffffff] text-black w-full md:w-4/5 mx-auto my-auto rounded-xl grid md:grid-cols-2 gap-10 p-5 md:px-10 py-16'>
+        <div className='bg-gradient-to-b md:bg-gradient-to-br from-[#C19F98] via-[#ffffff] to-[#ffffff] text-black w-full md:w-4/5 mx-auto my-auto rounded-xl grid md:grid-cols-2 gap-10 p-5 md:px-10 py-16'>
             <div className='flex flex-col  justify-between h-full'>
 
                 <div>
@@ -178,6 +179,13 @@ const Book = ({pkg, onClose} : {pkg: {
                                     <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/></svg>
                             </button>
                         </div>
+                    </div>
+                    <div className='flex items-center gap-3 text-sm'>
+                        <input 
+                            type='checkbox' 
+                            name='policy'
+                            required
+                        /> <p>I have read and agreed to the <Link href='/policy' target="_blank" className='cursor-pointer'><span className='text-[#C19F98]'>Policy</span></Link> set by Hanberry Beauty.</p>
                     </div>
                     <h3 className='text-red-500 text-center'>{error}</h3>
                     <div className='bg-black/4 p-5 rounded-lg'>
