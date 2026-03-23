@@ -88,7 +88,10 @@ const Book = ({pkg, onClose} : {pkg: {
             <div className='flex flex-col  justify-between h-full'>
 
                 <div>
-                    <h3 className='text-3xl md:text-4xl font-extrabold'>Booking Form</h3>
+                    <h3 
+                        className='text-3xl md:text-5xl font-extrabold'
+                        style={{fontFamily: 'salvager'}}
+                    >Booking Form</h3>
 
                     <h5 className='text-lg font-light mt-10'>Package detail</h5>
                     <h3 className='text-xl md:text-3xl font-bold pb-3'>{pkg.name}</h3>
@@ -110,7 +113,7 @@ const Book = ({pkg, onClose} : {pkg: {
             </div>
             <div className='p-5 rounded-lg bg-white shadow-2xl space-y-2 md:p-10'>
                 {/* <p className='text-sm text-black/50'>This booking is for availability checking only. Confirmation and payment process will be arranged directly with the makeup artist.</p> */}
-                <h3 className='text-2xl font-bold mb-5'>Fill in the form below</h3>
+                <h3 className='text-2xl font-semibold mb-5'>Fill in the form below</h3>
                 <form onSubmit={handleSubmit} className='space-y-8'>
                     <div>
                         <h3 className='font-semibold'>Full Name</h3>

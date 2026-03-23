@@ -2,11 +2,12 @@
 import Masonry from '@/components/Masonry';
 import Link from 'next/link';
 import React from 'react'
+import { motion } from 'framer-motion';
 
 const Gallery = () => {
 
     const allImages = [
-  {
+    {
       id: "1000",
       img: "/images/g19.JPG",
       height: 850,
@@ -38,8 +39,8 @@ const Gallery = () => {
     },
     {
       id: "2",
-      img: "/images/g2.JPG",
-      height: 550,
+      img: "/images/p2.PNG",
+      height: 1050,
       type: '',
     },
     {
@@ -146,7 +147,7 @@ const Gallery = () => {
     },
     {
       id: "19",
-      img: "/images/g25.JPG",
+      img: "/images/o5.JPG",
       height: 1000,
       type: '',
     },
@@ -158,7 +159,7 @@ const Gallery = () => {
     },
     {
       id: "21",
-      img: "/images/g28.JPG",
+      img: "/images/p1.JPG",
       height: 1000,
       type: '',
     },
@@ -168,18 +169,30 @@ const Gallery = () => {
       height: 700,
       type: '',
     },
-];
+    ];
   return (
     <div className='bg-white text-black pt-10 pb-12 md:pb-16 lg:pb-20'>
         <div className='relative w-full md:h-fit'>
-            <div className='mx-auto flex items-center justify-center'>
-                <Link href='/'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
-                        <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1"/>
-                    </svg>
-                </Link>
-                <h3 className="text-center text-3xl md:text-4xl font-bold mb-8 py-10">  Gallery</h3>
-            </div>
+          <div className='px-5 md:px-10'>
+            <Link href='/' >
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                    <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1"/>
+                </svg>
+            </Link>
+          </div>
+          <div className='mx-auto flex items-start justify-center py-10'>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-4xl md:text-6xl mb-10 md:mb-8 text-black"
+                style={{fontFamily: 'salvager'}}
+                // style={{ fontFamily: 'Georgia, serif' }}
+              >
+                Gallery
+              </motion.h1>
+          </div>
           <Masonry
             items={allImages}
             ease="power3.out"
