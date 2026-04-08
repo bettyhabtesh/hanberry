@@ -79,11 +79,11 @@ function HeroSection() {
           );
         })}
         <div>
-          <div className={`absolute inset-y-0 right-2 top-2/3 transform -translate-y-1/2 pointer-events-none `}> 
+          <div className={`absolute inset-y-0 right-2 -bottom-10 top-2/3 transform -translate-y-1/2 pointer-events-none `}> 
               {/* Bottom layer: large white stroke (outline) */}
               <span
                 aria-hidden
-                style={{ WebkitTextStroke: '6px white', color: 'transparent' }}
+                style={{ WebkitTextStroke: '6px black', color: 'transparent' }}
                 className="block text-[4em] md:text-[11em] md:font-extrabold tracking-wider leading-none pt-40"
               > BEAUTY </span>
             </div>

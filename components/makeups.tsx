@@ -44,7 +44,7 @@ export default function MakeupGallery() {
 
   return (
     <div className="w-full bg-white py-6 md:py-8 lg:py-24">
-      <div className="container px-4 md:px-16">
+      <div className="px-4 md:px-16">
         {/* Top Divider Line */}
         {/* <div className="h-px bg-[#F8E7E3] mb-6 md:mb-8"></div> */}
 
@@ -78,7 +78,7 @@ export default function MakeupGallery() {
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-black">
                     {currentStyle.title}
                   </h2>
-                  <p className="text-base text-md text-gray-500 leading-relaxed max-w-2xl">
+                  <p className="text-base text-md text-black leading-relaxed max-w-2xl">
                     {currentStyle.description}
                   </p>
                 </motion.div>

@@ -176,7 +176,7 @@ const Book = ({pkg, onClose} : {pkg: {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="50" viewBox="0 0 24 24">
                                 <path fill="#000000" d="M17 13H7v-2h10m2-8H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg>  
                             </button>
-                            <div className='bg-gray-300 w-10 h-10 rounded-lg flex items-center justify-center'>{quantity}</div>
+                            <div className='bg-black/4 w-10 h-10 rounded-lg flex items-center justify-center'>{quantity}</div>
                             <button type='button' onClick={handleQuantityIncrease}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-plus-square-fill" viewBox="0 0 16 16">
                                     <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/></svg>

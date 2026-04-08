@@ -10,8 +10,8 @@ const categories = ['All', 'Bridal', 'Glam'];
 const allImages = [
   {
       id: "1000",
-      img: "/images/g19.JPG",
-      height: 850,
+      img: "/images/ham2.JPEG",
+      height: 950,
       type: '',
     },
     // {
@@ -98,12 +98,12 @@ const allImages = [
       height: 550,
       type: '',
     },
-     {
-      id: "120", // tinu
-      img: "/images/o4.JPG",
-      height: 450,
-      type: '',
-    },
+    //  {
+    //   id: "120",
+    //   img: "/images/o4.JPG",
+    //   height: 450,
+    //   type: '',
+    // },
     // {
     //   id: "13",
     //   img: "/images/g13.PNG",
@@ -149,7 +149,7 @@ export default function WorksInHome() {
 
   return (
     <div id='works' className="w-full h-fit bg-white font-poppins py-12 md:py-24 lg:py-24 relative">
-      <div className="container mx-auto relative">
+      <div className=" mx-auto relative">
         {/* Header Section */}
         <motion.div
           initial="hidden"
@@ -214,7 +214,7 @@ export default function WorksInHome() {
           variants={fadeInUp}
           className="flex justify-center relative bottom-0"
         >
-          <Link href="/gallery" className="bg-black border border-black text-white px-8 py-2 md:px-12 md:py-3 text-base md:text-lg hover:bg-white hover:text-black transition-colors ">
+          <Link href="/gallery" className="bg-black border border-black text-white px-8 py-2 md:px-12 md:py-3 text-base md:text-lg hover:bg-white hover:text-black transition-colors my-16">
             View More
           </Link>
         </motion.div>

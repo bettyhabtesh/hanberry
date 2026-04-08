@@ -112,9 +112,9 @@ export default function Navbar() {
             className="object-cover"
           />
         </div>
-        <button className="bg-black text-white px-4 py-2 text-sm md:text-lg transition-colors">
+        <Link href='/#booking' className="bg-black text-white px-4 py-2 text-sm md:text-lg transition-colors">
           Book Now
-        </button> 
+        </Link> 
       </div>
       {
         openMenu && (
@@ -130,7 +130,7 @@ export default function Navbar() {
                 Services
               </Link>
               <Link href="#about" className="hover:text-[#C9A34E] text-black transition-colors">
-                The Artist
+                About the Artist
               </Link>
               <Link href="#contact" className="hover:text-[#C9A34E] text-black md:text-l transition-colors">
                 Contact

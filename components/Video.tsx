@@ -15,7 +15,7 @@ export default function PromoVideo({videoId}: {videoId?: string}) {
   return (
     <div
       onContextMenu={(e) => e.preventDefault()} // disables right-click
-      className="overflow-hidden border-2 border-black/20 p-3 h-full w-fit mx-auto"
+      className="overflow-hidden border-3 border-black/20 p-3 h-full w-fit mx-auto"
     >
       <AdvancedVideo
         cldVid={video}

@@ -25,7 +25,7 @@ const Booking = () => {
                     name: 'Normal Package',
                     type: 'normal',
                     includes: [
-                        'Bridal Makeup', 'Consultation'
+                        'Bridal Makeup', 'Dermaplaning', 'Consultation'
                     ],
                     description: 'This package includes professional bridal makeup for a clean and elegant look. It is perfect for brides who want a simple yet beautiful finish.',
                     price: 30000,
@@ -38,10 +38,10 @@ const Booking = () => {
                     name: 'Gold Package',
                     type: 'gold',
                     includes: [
-                        'Dermaplaning', 'Hairstyling', 'Bridal Makeup', 'Consultation'
+                        'Dermaplaning', 'Hairstyling', 'Bridal Makeup', 'Nails', 'Consultation'
                     ],
-                    description: 'This package offers full bridal preparation including dermaplaning, hairstyling, and makeup. It gives a smooth, polished, and long-lasting bridal look.',
-                    price: 35000,
+                    description: 'This package offers full bridal preparation including dermaplaning, hairstyling, nails and makeup. It gives a smooth, polished, and long-lasting bridal look.',
+                    price: 45000,
                     background: '/images/gold.png',
                     duration: '3-4 hr',
                     optional: null
@@ -51,10 +51,10 @@ const Booking = () => {
                     name: 'Platinum Package',
                     type: 'platinum',
                     includes: [
-                        'Dermaplaning', 'Hairstyling', 'Bridal Makeup', 'Retouch', 'Consultation'
+                        'Dermaplaning', 'Hairstyling', 'Bridal Makeup', 'Nails', 'Pedicure', 'Retouch', 'Consultation'
                     ],
-                    description: 'This is a complete premium bridal package with skin prep, hairstyling, and makeup. A retouch is included to keep your look fresh throughout the event.',
-                    price: 45000,
+                    description: 'This is a complete premium bridal package with skin prep, hairstyling, makeup and a relaxing pedicure. A retouch is included to keep your look fresh throughout the event.',
+                    price: 55000,
                     background: '/images/platinum.png',
                     duration: '3-4 hr',
                     optional: null
@@ -64,10 +64,23 @@ const Booking = () => {
                     name: 'Shemgelna Package',
                     type: 'shemgelna',
                     includes: [
-                        'Makeup'
+                        'Makeup', 'Nail'
                     ],
-                    description: 'This package provides makeup services suitable for traditional or special cultural events. It focuses on enhancing natural beauty with a neat and elegant finish.',
-                    price: 15000,
+                    description: 'This package provides makeup and nail services suitable for traditional or special cultural events. It focuses on enhancing natural beauty with a neat and elegant finish.',
+                    price: 20000,
+                    background: '/images/glam.png',
+                    duration: '1:30 - 2 hr',
+                    optional: null
+                },
+                {
+                    id: 5,
+                    name: 'Mels Package',
+                    type: 'mels',
+                    includes: [
+                        'Makeup', 'Hairstyling'
+                    ],
+                    description: 'A simple yet elegant beauty package including professional Makeup and Hairstyling to enhance your natural look. Perfect for any occasion, it ensures you feel confident, polished, and ready to shine.',
+                    price: 25000,
                     background: '/images/glam.png',
                     duration: '1:30 - 2 hr',
                     optional: null
@@ -194,9 +207,9 @@ const Booking = () => {
     <>
       <div id='booking' className=" text-black bg-white py-16">
         <div className="py-10 px-5 md:px-10">
-          <div className="w-full grid xl:grid-cols-3 md:px-16 gap-5">
+          <div className="w-full grid xl:grid-cols-3 md:px-16 gap-5 md:gap-16">
             <div className="w-full ">
-              <div className="w-80 md:w-90 min-h-52 h-full relative p-2 md:p-6 z-40">
+              <div className="w-80 md:w-90 lg:w-full min-h-52 h-full relative p-2 md:p-6 z-40">
                 <Image
                   src="/images/b11.PNG"
                   alt="package image"
