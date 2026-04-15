@@ -1,181 +1,22 @@
 'use client'
 import Masonry from '@/components/Masonry';
 import Link from 'next/link';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
 
-const Gallery = () => {
+type Item = { id: number; image_url: string; height: number; type: string };
 
-    const allImages = [
-    {
-      id: "1001",
-      img: "/images/ham2.JPEG",
-      height: 1450,
-      type: '',
-    },
-    {
-      id: "1000",
-      img: "/images/g19.JPG",
-      height: 1050,
-      type: '',
-    },
-    {
-      id: "1",
-      img: "/images/g1.JPG",
-      height: 1250,
-      type: '',
-    },
-    {
-      id: "18",
-      img: "/images/g24.PNG",
-      height: 750,
-      type: '',
-    },
-    {
-      id: "200",
-      img: "/images/g21.JPG",
-      height: 950,
-      type: '',
-    },
-     {
-      id: "2000",
-      img: "/images/g17.JPG",
-      height: 1050,
-      type: '',
-    },
-    {
-      id: "2",
-      img: "/images/p2.PNG",
-      height: 1050,
-      type: '',
-    },
-    {
-      id: "3",
-      img: "/images/g3.PNG",
-      height: 1300,
-      type: '',
-    },
-    {
-      id: "300",
-      img: "/images/g18.PNG",
-      height: 1000,
-      type: '',
-    },
-    {
-      id: "4",
-      img: "/images/g4.PNG",
-      height: 1250,
-      type: '',
-    },
-    {
-      id: "400",
-      img: "/images/g22.PNG",
-      height: 950,
-      type: '',
-    },
-    {
-      id: "5",
-      img: "/images/g5.JPG",
-      height: 1000,
-      type: '',
-    },
-    {
-      id: "6",
-      img: "/images/g6.JPG",
-      height: 1000,
-      type: '',
-    },
-    {
-      id: "7",
-      img: "/images/g7.JPG",
-      height: 1300,
-      type: '',
-    },
-    {
-      id: "8",
-      img: "/images/g8.PNG",
-      height: 1050,
-      type: '',
-    },
-    {
-      id: "9",
-      img: "/images/g9.JPG",
-      height: 950,
-      type: '',
-    },
-    {
-      id: "10",
-      img: "/images/g10.JPG",
-      height: 1250,
-      type: '',
-    },
-    {
-      id: "11",
-      img: "/images/g11.PNG",
-      height: 1050,
-      type: '',
-    },
-    {
-      id: "12", // tinu
-      img: "/images/g12.JPG",
-      height: 1250,
-      type: '',
-    },
-    {
-      id: "13",
-      img: "/images/g13.PNG",
-      height: 1050,
-      type: '',
-    },
-    {
-      id: "14",
-      img: "/images/g14.JPG",
-      height: 1350,
-      type: '',
-    },
-    {
-      id: "15",
-      img: "/images/g15.JPG",
-      height: 1250,
-      type: '',
-    },
-    {
-      id: "16",
-      img: "/images/g16.JPG",
-      height: 1300,
-      type: '',
-    },
-    {
-      id: "17",
-      img: "/images/g17.PNG",
-      height: 1200,
-      type: '',
-    },
-    {
-      id: "19",
-      img: "/images/o5.JPG",
-      height: 1300,
-      type: '',
-    },
-    {
-      id: "20",
-      img: "/images/g26.JPG",
-      height: 1300,
-      type: '',
-    },
-    {
-      id: "21",
-      img: "/images/p1.JPG",
-      height: 1400,
-      type: '',
-    },
-    {
-      id: "22",
-      img: "/images/g30.JPG",
-      height: 1000,
-      type: '',
-    },
-    ];
+const Gallery = () => {
+  const [title, setTitle] = useState('Gallery');
+  const [images, setImages] = useState<Item[]>([]);
+
+  useEffect(() => {
+    fetch('/api/public/gallery').then((r) => r.json()).then((data) => {
+      if (data?.content?.title) setTitle(data.content.title);
+      setImages(Array.isArray(data?.images) ? data.images : []);
+    }).catch(() => setImages([]));
+  }, []);
+
   return (
     <div className='bg-white text-black pt-10 pb-12 md:pb-16 lg:pb-20'>
         <div className='relative w-full md:h-fit'>
@@ -187,29 +28,11 @@ const Gallery = () => {
             </Link>
           </div>
           <div className='mx-auto flex items-start justify-center py-10'>
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl md:text-6xl mb-10 md:mb-8 text-black"
-                style={{fontFamily: 'salvager'}}
-                // style={{ fontFamily: 'Georgia, serif' }}
-              >
-                Gallery
+              <motion.h1 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-4xl md:text-6xl mb-10 md:mb-8 text-black" style={{fontFamily: 'salvager'}}>
+                {title}
               </motion.h1>
           </div>
-          <Masonry
-            items={allImages}
-            ease="power3.out"
-            duration={0.6}
-            stagger={0.05}
-            animateFrom="bottom"
-            scaleOnHover={true}
-            hoverScale={0.95}
-            blurToFocus={true}
-            colorShiftOnHover={false}
-          />
+          <Masonry items={images.map((i) => ({ id: String(i.id), img: i.image_url, height: i.height, type: i.type }))} ease="power3.out" duration={0.6} stagger={0.05} animateFrom="bottom" scaleOnHover={true} hoverScale={0.95} blurToFocus={true} colorShiftOnHover={false} />
         </div>
     </div>
   )
