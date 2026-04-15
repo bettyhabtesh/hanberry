@@ -7,16 +7,19 @@ import { AdminHeader } from "@/components/admin/AdminHeader";
 import { AdminTabs } from "@/components/admin/AdminTabs";
 import { AdminDashboardPanel } from "@/components/admin/AdminDashboardPanel";
 import { AdminPackagesPanel } from "@/components/admin/AdminPackagesPanel";
+import { AdminBookingsPanel } from "@/components/admin/AdminBookingsPanel";
 import {
+  BookingRequest,
   BookingCategory,
   BookingCategoryGroup,
   BookingDataResponse,
   BookingPackage,
   DashboardMetrics,
+  NewPackageInput,
   TabKey,
 } from "@/components/admin/types";
 
-const tabs: TabKey[] = ["Dashboard", "Packages", "Bookings", "Works", "Gallery", "Setting"];
+const tabs: TabKey[] = ["Dashboard", "Packages", "Bookings", "Works", "Gallery", "History", "Setting"];
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -33,6 +36,8 @@ export default function AdminPage() {
   const [packages, setPackages] = useState<BookingPackage[]>([]);
   const [groupedCategories, setGroupedCategories] = useState<BookingCategoryGroup[]>([]);
   const [loadingPackages, setLoadingPackages] = useState(false);
+  const [bookingRequests, setBookingRequests] = useState<BookingRequest[]>([]);
+  const [loadingBookings, setLoadingBookings] = useState(false);
   const [newCategory, setNewCategory] = useState("");
   const [expandedPackageId, setExpandedPackageId] = useState<number | null>(null);
   const [infoMessage, setInfoMessage] = useState("");
@@ -73,6 +78,11 @@ export default function AdminPage() {
     loadPackagesData();
   }, [activeTab]);
 
+  useEffect(() => {
+    if (activeTab !== "Bookings") return;
+    loadBookingsData();
+  }, [activeTab]);
+
   async function loadDashboard(cancelled: boolean) {
     const dashboardRes = await fetch("/api/admin/dashboard", { cache: "no-store" });
     if (!dashboardRes.ok) return;
@@ -111,6 +121,24 @@ export default function AdminPage() {
     }
   }
 
+  async function loadBookingsData() {
+    setLoadingBookings(true);
+    try {
+      const res = await fetch("/api/admin/bookings", { cache: "no-store" });
+      if (!res.ok) {
+        setInfoMessage("Failed to load bookings data.");
+        return;
+      }
+
+      const data = (await res.json()) as BookingRequest[];
+      setBookingRequests(Array.isArray(data) ? data : []);
+    } catch {
+      setInfoMessage("Failed to load bookings data.");
+    } finally {
+      setLoadingBookings(false);
+    }
+  }
+
   async function addCategory(nameOverride?: string) {
     const name = (nameOverride ?? newCategory).trim();
     if (!name) return;
@@ -129,41 +157,42 @@ export default function AdminPage() {
     }
   }
 
-  async function editCategory(category: BookingCategory) {
-    const nextName = window.prompt("Edit category name", category.name)?.trim();
-    if (!nextName) return;
+  async function editCategory(category: BookingCategory, nextName: string) {
+    const trimmed = nextName.trim();
+    if (!trimmed) return;
     await fetch(`/api/admin/booking/categories/${category.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         ...category,
-        name: nextName,
+        name: trimmed,
       }),
     });
     await loadPackagesData();
   }
 
   async function deleteCategory(categoryId: number) {
-    if (!window.confirm("Delete this category?")) return;
     await fetch(`/api/admin/booking/categories/${categoryId}`, { method: "DELETE" });
     await loadPackagesData();
   }
 
-  async function addPackage() {
-    const targetCategory = categories[0];
-    if (!targetCategory) {
+  async function addPackage(input?: NewPackageInput) {
+    const targetCategoryId = input?.category_id ?? categories[0]?.id;
+    if (!targetCategoryId) {
       setInfoMessage("Create a category first.");
       return;
     }
+
+    const includes = input?.includes ?? [];
     const payload = {
-      category_id: targetCategory.id,
-      name: "New Package",
-      type: "normal",
-      description: "Describe your package here.",
-      price: 0,
-      duration: "2-3 hr",
+      category_id: targetCategoryId,
+      name: input?.name?.trim() || "New Package",
+      type: input?.type?.trim() || "normal",
+      description: input?.description?.trim() || "Describe your package here.",
+      price: Number.isFinite(input?.price) ? Math.max(0, Math.round(input!.price)) : 0,
+      duration: input?.duration?.trim() || "2-3 hr",
       optional_note: null,
-      includes: [],
+      includes: includes.filter((v) => v.trim()).map((v) => v.trim()),
       image_url: null,
       sort_order: packages.length,
       active: true,
@@ -178,24 +207,33 @@ export default function AdminPage() {
     }
   }
 
-  async function editPackage(pkg: BookingPackage) {
-    const nextName = window.prompt("Edit package name", pkg.name)?.trim();
-    if (!nextName) return;
+  async function editPackage(pkg: BookingPackage, nextName: string) {
+    const trimmed = nextName.trim();
+    if (!trimmed) return;
     await fetch(`/api/admin/booking/packages/${pkg.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         ...pkg,
-        name: nextName,
+        name: trimmed,
       }),
     });
     await loadPackagesData();
   }
 
   async function deletePackage(packageId: number) {
-    if (!window.confirm("Delete this package?")) return;
     await fetch(`/api/admin/booking/packages/${packageId}`, { method: "DELETE" });
     await loadPackagesData();
+  }
+
+  async function updateBookingStatus(id: number, status: "pending" | "confirmed" | "rejected" | "done") {
+    await fetch(`/api/admin/bookings/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status }),
+    });
+    await loadBookingsData();
+    await loadDashboard(false);
   }
 
   async function logout() {
@@ -233,6 +271,14 @@ export default function AdminPage() {
             onEditPackage={editPackage}
             onDeletePackage={deletePackage}
             onTogglePackage={setExpandedPackageId}
+          />
+        ) : null}
+
+        {activeTab === "Bookings" ? (
+          <AdminBookingsPanel
+            requests={bookingRequests}
+            loading={loadingBookings}
+            onUpdateStatus={updateBookingStatus}
           />
         ) : null}
       </section>

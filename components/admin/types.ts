@@ -3,7 +3,7 @@ export type DashboardMetrics = {
   activePackages: number;
 };
 
-export type TabKey = "Dashboard" | "Packages" | "Bookings" | "Works" | "Gallery" | "Setting";
+export type TabKey = "Dashboard" | "Packages" | "Bookings" | "Works" | "Gallery" | "History" | "Setting";
 
 export type BookingCategory = {
   id: number;
@@ -33,4 +33,30 @@ export type BookingDataResponse = {
   categories: BookingCategory[];
   packages: BookingPackage[];
   grouped: BookingCategoryGroup[];
+};
+
+export type NewPackageInput = {
+  category_id: number;
+  name: string;
+  type: string;
+  description: string;
+  price: number;
+  duration: string;
+  includes: string[];
+};
+
+export type BookingRequestStatus = "pending" | "confirmed" | "rejected" | "done";
+
+export type BookingRequest = {
+  id: number;
+  full_name: string;
+  email: string;
+  phone: string;
+  package_name: string;
+  duration: string;
+  person_quantity: number;
+  preferred_date: string | null;
+  status: BookingRequestStatus;
+  notes: string | null;
+  created_at: string;
 };

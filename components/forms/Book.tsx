@@ -54,23 +54,30 @@ const Book = ({pkg, onClose} : {pkg: {
             e.preventDefault();
             setLoading(true);
             setError('');
+            const payload = { 
+                fullname, 
+                phone, 
+                date, 
+                quantity,
+                packageName: pkg.name,
+                packagePrice: pkg.price,
+                packageType: pkg.type,
+                duration: pkg.duration,
+                email: email || null,
+                totalPrice,
+                includes: pkg.includes
+            };
             
+            await fetch('/api/public/bookings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
             await fetch('/api/send-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    fullname, 
-                    phone, 
-                    date, 
-                    quantity,
-                    packageName: pkg.name,
-                    packagePrice: pkg.price,
-                    packageType: pkg.type,
-                    duration: pkg.duration,
-                    email: email || null,
-                    totalPrice,
-                    includes: pkg.includes
-                }),
+                body: JSON.stringify(payload),
             })
             setLoading(false)
             setSuccess(true);
