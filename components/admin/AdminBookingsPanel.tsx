@@ -84,7 +84,7 @@ export function AdminBookingsPanel({ requests, loading, onUpdateStatus }: AdminB
 
       {showCompletedModal ? (
         <div className="fixed inset-0 z-50 bg-black/20 flex items-center justify-center px-6">
-          <div className="w-full max-w-[760px] rounded-2xl bg-white px-8 py-6 shadow-xl relative text-center">
+          <div className="w-full max-w-[760px] rounded-2xl bg-white p-8 shadow-xl relative text-center">
             <button
               type="button"
               onClick={() => setShowCompletedModal(false)}
@@ -94,7 +94,7 @@ export function AdminBookingsPanel({ requests, loading, onUpdateStatus }: AdminB
               ×
             </button>
 
-            <div className="pt-2">
+            <div className="pt-8">
               <div className="mx-auto w-fit">
                 <Image
                   src="/images/Completed.png"
@@ -105,10 +105,10 @@ export function AdminBookingsPanel({ requests, loading, onUpdateStatus }: AdminB
                   priority
                 />
               </div>
-              <div className="mx-auto mt-2 h-28 w-28 rounded-full bg-[#E6EFE4] flex items-center justify-center">
-                <span className="text-[68px] leading-none text-[#60D468]">✓</span>
+              <div className="mx-auto mt-5 h-36 w-36 rounded-full bg-[#E6EFE4] flex items-center justify-center">
+                <span className="text-[88px] leading-none text-[#60D468]">✓</span>
               </div>
-              <p className="mt-4 text-[18px] text-black/60">
+              <p className="mt-8 text-[18px] text-black/60">
                 You can view completed works in history section
               </p>
             </div>
